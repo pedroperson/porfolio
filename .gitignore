@@ -1,0 +1,4 @@
+.vercel
+go.sum
+yarn.lock
+node_modules/
