@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ .Title }}</title>
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
+    <link href="/style.css" rel="stylesheet" />
   </head>
   <body>
     <header>{{ template "header" . }}</header>
-    <main>{{ .Content }}</main>
+    <!-- Pad-top for the fixed-position header -->
+    <main class="pt-16">{{ .Content }}</main>
     <footer>{{ template "footer" . }}</footer>
   </body>
 </html>

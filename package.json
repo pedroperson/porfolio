@@ -5,6 +5,7 @@
   "author": "lilpp",
   "license": "MIT",
   "dependencies": {
+    "tailwindcss": "^3.4.1",
     "vercel": "^31.2.2"
   },
   "scripts": {

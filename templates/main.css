@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #222;
+}
+
+.my-page-width {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+@media (max-width: 768px) {
+  .my-page-width {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}

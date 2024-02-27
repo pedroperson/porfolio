@@ -1,1 +1,14 @@
-{{ define "header" }} hello i am the HEADER {{ end }}
+{{ define "header" }}
+<div class="fixed top-0 left-0 right-0 text-white py-4 px-8">
+  <div class="my-page-width">
+    <div class="flex justify-between items-center">
+      <div class="font-bold">My Site</div>
+      <div class="flex gap-4 font-bold">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
