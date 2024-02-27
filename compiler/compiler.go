@@ -18,7 +18,7 @@ func main() {
 	// Define the base directories
 	baseTemplateDir := "templates/pages"
 	baseLayoutDir := "templates" // Adjust if your directory structure is different
-	baseOutputDir := "../public"
+	baseOutputDir := "public"
 
 	// Combine all layout related files into a single template object
 	layoutPattern := filepath.Join(baseLayoutDir, "*.html") // This should match your layout, header, and footer files
