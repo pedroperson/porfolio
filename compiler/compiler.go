@@ -21,7 +21,9 @@ func main() {
 	baseOutputDir := "public"
 
 	// Combine all layout related files into a single template object
-	layoutPattern := filepath.Join(baseLayoutDir, "*.html") // This should match your layout, header, and footer files
+	// This should match your layout, header, and footer files
+	layoutPattern := filepath.Join(baseLayoutDir, "*.html")
+
 	layoutTemplates, err := template.ParseGlob(layoutPattern)
 	if err != nil {
 		panic(err)
