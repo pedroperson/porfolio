@@ -40,16 +40,16 @@ Open a terminal at root and run to start the tailwind listener
 yarn tailwindcss -i templates/main.css -o public/style.css --watch
 ```
 
-Then open another and run to open the local server
+Then open another to watch the template folder and re-compile the html when it gets changed
+
+```
+go run compiler/watch.go
+```
+
+Then open another and run to open the local server. Alternatively, you can serve index.html as a LiveServer
 
 ```
 yarn dev
-```
-
-Then open another and run every time you change an html file or go:
-
-```
-go run compiler/compiler.go
 ```
 
 ## Publishing

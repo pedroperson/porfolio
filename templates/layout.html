@@ -10,11 +10,11 @@
   </head>
   <body>
     <header>{{ template "header" . }}</header>
-    <!-- Pad-top for the fixed-position header -->
 
     {{ template "canvas-stripes"}}
 
-    <main class="pt-16">{{ .Content }}</main>
+    <main>{{ .Content }}</main>
+
     <footer>{{ template "footer" . }}</footer>
   </body>
 </html>

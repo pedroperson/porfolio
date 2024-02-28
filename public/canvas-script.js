@@ -92,14 +92,14 @@ function startFrameChange(color, N = 4) {
   }
 }
 
-for (let i = 0; i < 100; i++) {
-  setTimeout(() => {
-    startFrameChange(
-      [255 * Math.random(), 255 * Math.random(), 255 * Math.random()],
-      7
-    );
-  }, i * 1000);
-}
+// for (let i = 0; i < 100; i++) {
+//   setTimeout(() => {
+//     startFrameChange(
+//       [255 * Math.random(), 255 * Math.random(), 255 * Math.random()],
+//       7
+//     );
+//   }, i * 1000);
+// }
 
 //   Prepare the canvas
 const canvas = document.getElementById("bg-canvas");
@@ -107,6 +107,32 @@ const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth * RESOLUTION;
 canvas.height = window.innerHeight * RESOLUTION;
+
+// Setup the trigger zones
+window.addEventListener("load", () => {
+  let observer = new IntersectionObserver(handleObserved, { threshold: 0.5 });
+  console.log(
+    'Array.from(document.querySelectorAll(".js-bg-color"))',
+    Array.from(document.querySelectorAll(".js-bg-color"))
+  );
+  Array.from(document.querySelectorAll(".js-bg-color")).forEach((e) =>
+    observer.observe(e)
+  );
+
+  function handleObserved(entries, observer) {
+    console.log("entries", entries);
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("intersection", entry);
+        let elem = entry.target;
+        const data = elem.getAttribute("data-color");
+        const color = JSON.parse(data);
+
+        startFrameChange(color, 5);
+      }
+    });
+  }
+});
 
 //   Start the animation
 requestAnimationFrame(animate);
