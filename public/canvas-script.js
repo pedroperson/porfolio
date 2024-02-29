@@ -110,7 +110,7 @@ canvas.height = window.innerHeight * RESOLUTION;
 const white = "#EEEEEE";
 const black = "#111111";
 let bodyTextColor = white;
-document.querySelector("body").style.transition = "color 0.8s ease";
+document.querySelector("body").style.transition = "color 0.5s ease 0.7s";
 
 // Setup the trigger zones
 window.addEventListener("load", () => {

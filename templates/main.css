@@ -5,6 +5,13 @@
 body {
   background: #222;
   color: #eee;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
+.font-serif {
+  font-family: "DM Serif Display", ui-serif, Georgia, Cambria, "Times New Roman",
+    Times, serif;
+  letter-spacing: 0.04em;
 }
 
 .my-page-width {
@@ -20,4 +27,39 @@ body {
     padding-left: 1em;
     padding-right: 1em;
   }
+}
+
+.has-tooltip {
+  position: relative;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  max-width: 200px;
+  color: white;
+  background-color: #192733;
+  border: 1px solid #485a6a;
+  padding: 5px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.has-tooltip:hover .tooltip,
+.tooltip:hover {
+  display: block;
+}
+
+.top {
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.bottom {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
 }

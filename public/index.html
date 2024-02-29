@@ -8,6 +8,15 @@
     
     
     <link href="/public/style.css" rel="stylesheet" />
+
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -101,15 +110,35 @@
     </div>
   </section>
 
-  <section class="mt-12 js-bg-color" data-color="[51, 81, 123]">
+  <section class="mt-12 js-bg-color" data-color="[16, 31, 54]">
     <h3 class="font-serif font-bold text-3xl">Zinc Cafe</h3>
-    <p class="opacity-85 text-sm">Built with: PHP</p>
-    <p class="opacity-85 text-sm">Deployed on: 
-      <div class="flex gap-4">
-        <div>
-          
+
+    <div class="flex items-center gap-2">
+      <p class="opacity-85 text-sm" style="margin-right: 1.8em">Built with:</p>
+
+      <div class="w-8 has-tooltip">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="currentColor"
+  viewBox="0 0 24 24"
+  role="img"
+>
+  <title>PHP icon</title>
+  <path
+    d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"
+  />
+</svg>
+
+        <span class="tooltip top">PHP</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <p class="opacity-85 text-sm mr-2">Deployed on:</p>
+      <div class="w-8 has-tooltip">
+        
 <svg xml:space="preserve" viewBox="0 0 444 260">
-  <g fill="#2F39BF" fill-rule="evenodd" clip-rule="evenodd">
+  <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
     <path
       d="M177.835 212.946c-1.626-1.73-2.96-3.089-4.226-4.509-4.797-5.38-8.687-11.354-11.562-17.966-.461-1.059-1.027-1.444-2.195-1.423-4.147.075-8.298.04-12.447.025-3.662-.011-5.601-1.84-5.709-5.477-.073-2.436-.076-4.877.003-7.312.117-3.579 2.033-5.369 5.615-5.374 2.993-.006 5.987-.001 9.172-.001-.749-8.151-.617-16.083 1.135-24.174h-2.327c-36.771 0-73.542.002-110.313-.002-5.007 0-8.718-2.923-9.625-7.549-1.071-5.462 3.102-10.681 8.717-10.895.57-.021 1.141-.007 1.711-.007 38.95 0 77.898-.009 116.848.034 1.437.001 2.194-.457 2.903-1.684 4.786-8.281 11.068-15.243 18.783-20.906.404-.297.791-.62 1.142-1.312h-1.894c-29.666 0-59.331.019-88.997-.045-1.812-.004-3.772-.323-5.405-1.064-3.872-1.756-5.793-6.188-4.818-10.295.963-4.06 4.722-7.039 8.968-7.043 13.069-.014 26.139-.006 39.208-.006 23.909 0 47.817-.012 71.726.033 1.401.002 2.081-.34 2.551-1.735 2.428-7.216 5.963-13.878 10.39-20.069.411-.575.811-1.159 1.407-2.012-.977-.044-1.667-.104-2.357-.104-34.696-.005-69.392.016-104.088-.057-1.952-.004-4.085-.399-5.814-1.257-3.721-1.846-5.436-6.27-4.379-10.176 1.152-4.258 4.669-6.945 9.163-6.945 41.905-.005 83.811-.008 125.716.019 1.351.001 2.483-.311 3.639-1.009 10.742-6.485 22.369-10.094 34.914-10.915 36.488-2.389 69.154 21.588 79.423 56.369.585 1.982 1.128 3.987 1.514 6.015.204 1.069.64 1.54 1.667 1.9 22.745 7.963 37.851 23.506 44.543 46.579 10.771 37.135-10.378 75.234-46.359 85.849-5.644 1.664-11.414 2.613-17.29 2.645-26.539.146-53.078.285-79.617.309-52.485.046-104.971.02-157.456-.02-1.57-.002-3.247-.219-4.692-.795-4.079-1.624-6.209-5.871-5.399-10.249.762-4.111 4.495-7.236 8.834-7.389.466-.015.933-.004 1.4-.004h73.438c.66.003 1.323.003 2.439.003z"
     />
@@ -119,24 +148,43 @@
   </g>
 </svg>
 
-        </div>
+        <span class="tooltip top">Cloudways</span>
       </div>
-    </p>
+      <div class="w-8 has-tooltip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
+    transform="scale(64)"
+    fill="currentColor"
+  />
+</svg>
 
-    <div class="flex items-center gap-4 mt-4">
-      <div class="w-1/2">
+        <span class="tooltip top">Github</span>
+      </div>
+    </div>
+    <a
+      class="font-bold px-4 py-2 mt-2 rounded inline-block transition-colors hover:bg-slate-600"
+      href="https://zinccafe.com"
+      style="border: 1px solid currentColor"
+      target="_blank"
+      >Visit site</a
+    >
+
+    <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+      <div class="w-full sm:w-1/2">
         <img
-          src="/public/bitbu-cover.jpg"
-          alt="Screenshot of home page of bitbu website"
-          class="w-full"
+          src="/public/zinc-cover.jpg"
+          alt="Screenshot of Zinc Cafe website"
+          class="w-full rounded-lg shadow-black shadow-lg"
         />
       </div>
 
-      <div class="w-1/2">
-        <p>
-          Zinc Cafe is a Southern California cafe, market, and bar with multiple
-          locations. Their focus on both customer and employee experiences makes
-          for a wonderful place to gather.
+      <div class="sm:w-1/2">
+        <p class="max-w-96 text-lg">
+          Zinc Cafe is a cafe, market, and bar focused on both customer and
+          employee experiences. <br />
         </p>
       </div>
     </div>
