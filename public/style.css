@@ -648,6 +648,10 @@ video {
   gap: 0.5rem;
 }
 
+.gap-8 {
+  gap: 2rem;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -691,6 +695,18 @@ video {
 
 .pt-16 {
   padding-top: 4rem;
+}
+
+.pr-4 {
+  padding-right: 1rem;
+}
+
+.pr-8 {
+  padding-right: 2rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
 }
 
 .font-serif {
@@ -879,7 +895,27 @@ body {
     width: 50%;
   }
 
+  .sm\:max-w-full {
+    max-width: 100%;
+  }
+
   .sm\:flex-row {
     flex-direction: row;
+  }
+
+  .sm\:pb-4 {
+    padding-bottom: 1rem;
+  }
+
+  .sm\:pr-0 {
+    padding-right: 0px;
+  }
+
+  .sm\:pr-8 {
+    padding-right: 2rem;
+  }
+
+  .sm\:pb-0 {
+    padding-bottom: 0px;
   }
 }
