@@ -107,10 +107,16 @@ const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth * RESOLUTION;
 canvas.height = window.innerHeight * RESOLUTION;
+const white = "#EEEEEE";
+const black = "#111111";
+let bodyTextColor = white;
+document.querySelector("body").style.transition = "color 0.8s ease";
 
 // Setup the trigger zones
 window.addEventListener("load", () => {
-  let observer = new IntersectionObserver(handleObserved, { threshold: 0.5 });
+  let observer = new IntersectionObserver(handleObserved, {
+    rootMargin: "-50% 0% -50% 0%",
+  });
   console.log(
     'Array.from(document.querySelectorAll(".js-bg-color"))',
     Array.from(document.querySelectorAll(".js-bg-color"))
@@ -129,6 +135,15 @@ window.addEventListener("load", () => {
         const color = JSON.parse(data);
 
         startFrameChange(color, 5);
+
+        if (luminance(color) < 0.5) {
+          bodyTextColor = white;
+        } else {
+          bodyTextColor = black;
+        }
+
+        console.log("lum", luminance(color), color, bodyTextColor);
+        document.querySelector("body").style.color = bodyTextColor;
       }
     });
   }
@@ -165,4 +180,8 @@ function animate() {
   }
 
   requestAnimationFrame(animate);
+}
+
+function luminance([r, g, b]) {
+  return (0.2126 * r) / 255 + (0.7152 * g) / 255 + (0.0722 * b) / 255;
 }

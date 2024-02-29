@@ -1,3 +1,4 @@
+{{ define "layout" }}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,8 +14,9 @@
 
     {{ template "canvas-stripes"}}
 
-    <main>{{ .Content }}</main>
+    <main>{{ template "content" . }}</main>
 
     <footer>{{ template "footer" . }}</footer>
   </body>
 </html>
+{{end}}

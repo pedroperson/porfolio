@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"html/template"
-	"io/fs"
+	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -38,7 +38,12 @@ func main() {
 					// }
 					// fmt.Println("Script output:", string(output))
 
-					Compile()
+					const layoutPath = "templates/layout.html"
+					const templatesDir = "templates"
+					const pagesDir = "templates/pages"
+					const publicDir = "public"
+
+					CompileTemplates(layoutPath, templatesDir, pagesDir, publicDir)
 				}
 			case err, ok := <-watcher.Errors:
 				if !ok {
@@ -77,69 +82,81 @@ type PageData struct {
 	Content template.HTML // Allows for HTML content
 }
 
-func Compile() {
-	// Define the base directories
-	baseTemplateDir := "templates/pages"
-	baseLayoutDir := "templates" // Adjust if your directory structure is different
-	baseOutputDir := "public"
+// compileAllTemplates compiles the layout and all other component templates.
+func compileAllTemplates(baseLayout string, dirs ...string) (*template.Template, error) {
+	tmpl := template.New("layout")
+	var err error
 
-	// Combine all layout related files into a single template object
-	// This should match your layout, header, and footer files
-	layoutPattern := filepath.Join(baseLayoutDir, "*.html")
-
-	layoutTemplates, err := template.ParseGlob(layoutPattern)
+	// Parse the base layout first
+	tmpl, err = tmpl.ParseFiles(baseLayout)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
-	// Process each page template
-	err = filepath.Walk(baseTemplateDir, func(path string, info fs.FileInfo, err error) error {
+	// Parse all other templates from specified directories
+	for _, dir := range dirs {
+		pattern := filepath.Join(dir, "*.html")
+		tmpl, err = tmpl.ParseGlob(pattern)
 		if err != nil {
-			return err
+			return nil, err
 		}
+	}
 
-		if info.IsDir() {
-			return nil // Skip directories
-		}
+	return tmpl, nil
+}
 
-		// Read and prepare the page-specific content
-		pageContent, err := os.ReadFile(path)
-		if err != nil {
-			return err
-		}
-
-		// Set up the full page data
-		fullPageData := PageData{
-			Title:   "Your Page Title",          // Change as needed
-			Content: template.HTML(pageContent), // Directly use read content
-		}
-
-		// Construct the output file path
-		relPath, err := filepath.Rel(baseTemplateDir, path)
-		if err != nil {
-			return err
-		}
-		outputFilePath := filepath.Join(baseOutputDir, strings.Replace(relPath, filepath.Ext(relPath), ".html", -1))
-
-		// Create and open the output file
-		file, err := os.Create(outputFilePath)
-		if err != nil {
-			return err
-		}
-		defer file.Close()
-
-		// Execute the layout template with the full page content
-		err = layoutTemplates.ExecuteTemplate(file, "layout.html", fullPageData)
-		if err != nil {
-			return err
-		}
-
-		fmt.Println("Compiled to html:", path)
-
-		return nil
-	})
-
+// CompileTemplates compiles HTML templates from the pages directory using a common layout and additional components.
+func CompileTemplates(layoutPath, templatesDir, pagesDir, publicDir string) {
+	// Compile layout and all component templates
+	tmpl, err := compileAllTemplates(layoutPath, filepath.Join(templatesDir, "components"), filepath.Join(templatesDir, "icons"))
 	if err != nil {
-		panic(err)
+		panic(err) // Replace with proper error handling
+	}
+
+	// Iterate over each HTML file in the pages directory
+	files, err := ioutil.ReadDir(pagesDir)
+	if err != nil {
+		panic(err) // Replace with proper error handling
+	}
+
+	for _, file := range files {
+		if file.IsDir() || !strings.HasSuffix(file.Name(), ".html") {
+			continue
+		}
+
+		pageName := file.Name()
+		pagePath := filepath.Join(pagesDir, pageName)
+
+		// Parse the page-specific content as a new template
+		pageContent, err := ioutil.ReadFile(pagePath)
+		if err != nil {
+			panic(err)
+		}
+
+		pageTmpl, err := tmpl.Clone()
+		if err != nil {
+			panic(err)
+		}
+
+		_, err = pageTmpl.New("content").Parse(string(pageContent))
+		if err != nil {
+			panic(err)
+		}
+
+		// Create the output file in the public directory
+		outputPath := filepath.Join(publicDir, pageName)
+		outputFile, err := os.Create(outputPath)
+		if err != nil {
+			panic(err)
+		}
+		defer outputFile.Close()
+
+		// Execute the combined template with the layout
+		err = pageTmpl.ExecuteTemplate(outputFile, "layout", nil)
+		if err != nil {
+			panic(err)
+		}
+
+		println("Compiled:", pageName)
 	}
 }
