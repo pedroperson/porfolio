@@ -5,12 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ .Title }}</title>
-    <!-- <link href="/style.css" rel="stylesheet" /> -->
-    <!-- For running it on the lvie server (without internet) -->
-    <link href="/public/style.css" rel="stylesheet" />
+    <link href="/style.css" rel="stylesheet" />
 
     <!-- Some google fonts -->
-    <!-- Latox -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +18,7 @@
   <body>
     <header>{{ template "header" . }}</header>
 
-    {{ template "canvas-stripes"}}
+    <!-- template "canvas-stripes" -->
 
     <main>{{ template "content" . }}</main>
 
