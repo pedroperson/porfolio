@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"html/template"
-	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -114,7 +113,7 @@ func CompileTemplates(layoutPath, templatesDir, pagesDir, publicDir string) {
 	}
 
 	// Iterate over each HTML file in the pages directory
-	files, err := ioutil.ReadDir(pagesDir)
+	files, err := os.ReadDir(pagesDir)
 	if err != nil {
 		panic(err) // Replace with proper error handling
 	}
@@ -128,7 +127,7 @@ func CompileTemplates(layoutPath, templatesDir, pagesDir, publicDir string) {
 		pagePath := filepath.Join(pagesDir, pageName)
 
 		// Parse the page-specific content as a new template
-		pageContent, err := ioutil.ReadFile(pagePath)
+		pageContent, err := os.ReadFile(pagePath)
 		if err != nil {
 			panic(err)
 		}
