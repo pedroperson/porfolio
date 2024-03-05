@@ -17,38 +17,22 @@
   <div class="flex items-center gap-2">
     <p class="opacity-85 text-sm" style="margin-right: 1.8em">Built with:</p>
 
-    <div class="w-8 has-tooltip">
-      {{ template "golang.html"}}
-      <span class="tooltip top">Golang</span>
-    </div>
+    <div class="w-8" data-jerry="Golang">{{ template "golang.html"}}</div>
 
-    <div class="w-6 has-tooltip">
-      {{ template "svelte.html"}}
-      <span class="tooltip top">Svelte</span>
-    </div>
+    <div class="w-6" data-jerry="Svelte">{{ template "svelte.html"}}</div>
   </div>
 
   <div class="flex items-center gap-2">
     <p class="opacity-85 text-sm mr-2">Deployed on:</p>
 
-    <div class="w-6 has-tooltip">
-      {{ template "aws-s3.html" }}
-      <span class="tooltip top">AWS S3</span>
-    </div>
+    <div class="w-6" data-jerry="AWS S3">{{ template "aws-s3.html" }}</div>
 
-    <div class="w-6 has-tooltip">
-      {{ template "aws-ec2.html" }}
-      <span class="tooltip top">AWS EC2</span>
-    </div>
+    <div class="w-6" data-jerry="AWS EC2">{{ template "aws-ec2.html" }}</div>
 
-    <div class="w-6 has-tooltip">
-      {{ template "postgres.html" }}
-      <span class="tooltip top">Postgres</span>
-    </div>
+    <div class="w-6" data-jerry="Postgres">{{ template "postgres.html" }}</div>
 
-    <div class="w-6 has-tooltip">
+    <div class="w-6" data-jerry="AWS Lambda">
       {{ template "aws-lambda.html"}}
-      <span class="tooltip top">AWS Lambda</span>
     </div>
   </div>
 
@@ -69,13 +53,11 @@
     time.
   </p>
 
-  <script src="jerry.js"></script>
-
   <section class="mt-12">
     <h3 class="font-serif font-bold text-3xl">Frontend</h3>
 
     <div class="flex items-center gap-4 mt-2">
-      <div class="w-1/2 js-jerry" data-jerry="poop">
+      <div class="w-1/2" data-jerry="poop">
         <img
           src="/bitbu-cover.jpg"
           alt="Screenshot of home page of bitbu website"

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* LOL IDK ABOUT THIS ONE */
+* {
+  transition: opacity 0.3s ease;
+}
+
 body {
   background: #111;
   color: #eee;

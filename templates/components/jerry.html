@@ -1,0 +1,50 @@
+<script src="jerry.js"></script>
+<style>
+  .jerry {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .jerry-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .jerry-text {
+    position: absolute;
+    z-index: -1;
+    left: 100%;
+    top: 50%;
+    white-space: nowrap;
+    background-color: black;
+    color: white;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translate(0, -50%);
+
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .jerry-text:not(.showing) {
+    opacity: 0;
+    transform: translate(-30px, -50%);
+  }
+
+  .jerry-on-me {
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
+  }
+</style>
