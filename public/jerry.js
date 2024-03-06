@@ -1,68 +1,114 @@
-let width = 30;
-let height = 30;
-const resolution = 2;
+Jerry();
 
-let currentText = "";
-let currentElement = null;
+function Jerry() {
+  let width = 30;
+  let height = 30;
+  const parent = document.createElement("div");
+  const canvas = document.createElement("div");
+  const textEl = document.createElement("div");
+  const position = { x: 0, y: 0 };
+  const targetPosition = { x: 0, y: 0 };
 
-// Hide the default cursor
-document.body.style.cursor = "none";
+  hideBrowserCursor();
+  assembleElements();
 
-const el = document.createElement("div");
-el.classList.add("jerry");
+  // Keep track of the current element being focused
+  let currentElement = null;
 
-const canvas = document.createElement("div");
-canvas.classList.add("jerry-canvas");
-canvas.width = width * resolution;
-canvas.height = height * resolution;
-canvas.style.width = width;
-canvas.style.height = height;
+  document.addEventListener("mousemove", (event) => {
+    moveToPointer(event);
 
-el.appendChild(canvas);
+    // Find out what the element directly under the mouse is
+    let underMouse = document.elementFromPoint(event.clientX, event.clientY);
+    underMouse = underMouse && underMouse.closest("[data-jerry]");
 
-// Text text ele
-const textEl = document.createElement("div");
-textEl.classList.add("jerry-text");
-el.appendChild(textEl);
+    // Only update when pointing to something new
+    if (currentElement === underMouse) return;
 
-// const ctx = el.getContext("2d");
-// ctx.fillStyle = "#FF0000";
-// ctx.fillRect(0, 0, width * resolution, height * resolution);
+    setText(underMouse);
+    setPointerStyle(underMouse);
+    currentElement = underMouse;
+  });
 
-document.body.appendChild(el);
+  function assembleElements() {
+    parent.classList.add("jerry");
+    canvas.classList.add("jerry-canvas");
+    textEl.classList.add("jerry-text");
 
-document.addEventListener("mousemove", (event) => {
-  const { clientX, clientY } = event;
-
-  el.style.transform = `translate(${clientX - width / 2}px, ${
-    clientY - height / 2
-  }px)`;
-
-  const atPointer = document.elementFromPoint(clientX, clientY);
-  const element = atPointer && atPointer.closest("[data-jerry]");
-  const text = element && element.dataset.jerry;
-
-  if (currentText !== text) {
-    currentText = text;
-    showElementText(currentText);
-
-    canvas.style.backgroundColor = text ? "#FFFFFF" : "";
-    canvas.style.transform = text ? "scale(0.2)" : "";
-    // canvas.style.borderRadius = text ? width + "px" : "";
-
-    currentElement && currentElement.classList.remove("jerry-on-me");
-    element && element.classList.add("jerry-on-me");
-    currentElement = element;
+    parent.appendChild(canvas);
+    parent.appendChild(textEl);
+    // Add element to the DOM
+    document.body.appendChild(parent);
   }
-});
 
-function showElementText(text) {
-  text = text && text.trim();
-  if (text) {
-    textEl.innerHTML = text;
-    textEl.classList.add("showing");
-  } else {
-    // textEl.innerHTML = "";
-    textEl.classList.remove("showing");
+  function moveToPointer(event) {
+    targetPosition.x = event.clientX - width / 2;
+    targetPosition.y = event.clientY - height / 2;
+
+    tweening.setTarget(targetPosition);
   }
+
+  let tweening = smoothMover();
+
+  function smoothMover() {
+    const position = { x: 0, y: 0 };
+    let targetPosition = { x: 0, y: 0 };
+
+    requestAnimationFrame(update);
+
+    function update() {
+      position.x = position.x * 0.6 + targetPosition.x * 0.4;
+      position.y = position.y * 0.6 + targetPosition.y * 0.4;
+
+      parent.style.transform = `translate(${position.x}px, ${position.y}px)`;
+
+      if (
+        !(position.x === targetPosition.x && position.y === targetPosition.y)
+      ) {
+        requestAnimationFrame(update); // Continue the animation if the duration has not been reached
+      }
+    }
+
+    return {
+      setTarget: (pos) => {
+        targetPosition = pos;
+      },
+    };
+  }
+
+  function setText(el) {
+    let text = el && el.dataset.jerry;
+    text = text && text.trim();
+
+    if (text) {
+      textEl.innerHTML = text;
+      textEl.classList.add("showing");
+    } else {
+      // Keep the text in there while it fades
+      textEl.classList.remove("showing");
+    }
+  }
+
+  function setPointerStyle(el) {
+    if (el) {
+      // Focus in
+      canvas.style.backgroundColor = "#FFFFFF";
+      canvas.style.transform = "scale(0.2)";
+      return;
+    }
+
+    // Default style
+    canvas.style.backgroundColor = "";
+    canvas.style.transform = "";
+  }
+}
+
+// We find related elements by checkign their dataset for a jerry field containing the text they which to display on the Jerry pointer
+function taggedElementUnderMouse(event) {
+  const el = document.elementFromPoint(event.clientX, event.clientY);
+  return el && el.closest("[data-jerry]");
+}
+
+function hideBrowserCursor() {
+  document.body.style.cursor = "none";
 }
