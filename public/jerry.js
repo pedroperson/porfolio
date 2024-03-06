@@ -1,4 +1,6 @@
-Jerry();
+window.addEventListener("load", () => {
+  new Jerry();
+});
 
 function Jerry() {
   let width = 30;
@@ -6,8 +8,9 @@ function Jerry() {
   const parent = document.createElement("div");
   const canvas = document.createElement("div");
   const textEl = document.createElement("div");
-  const position = { x: 0, y: 0 };
-  const targetPosition = { x: 0, y: 0 };
+  let tweening = new SmoothMover(
+    ({ x, y }) => (parent.style.transform = `translate(${x}px, ${y}px)`)
+  );
 
   hideBrowserCursor();
   assembleElements();
@@ -42,43 +45,11 @@ function Jerry() {
   }
 
   function moveToPointer(event) {
-    targetPosition.x = event.clientX - width / 2;
-    targetPosition.y = event.clientY - height / 2;
-
-    tweening.setTarget(targetPosition);
-  }
-
-  let tweening = smoothMover();
-
-  function smoothMover() {
-    const position = { x: 0, y: 0 };
-    let targetPosition = { x: 0, y: 0 };
-
-    requestAnimationFrame(update);
-
-    function update() {
-      position.x = position.x * 0.6 + targetPosition.x * 0.4;
-      position.y = position.y * 0.6 + targetPosition.y * 0.4;
-
-      parent.style.transform = `translate(${position.x}px, ${position.y}px)`;
-
-      if (
-        !(position.x === targetPosition.x && position.y === targetPosition.y)
-      ) {
-        requestAnimationFrame(update); // Continue the animation if the duration has not been reached
-      }
-    }
-
-    return {
-      setTarget: (pos) => {
-        targetPosition = pos;
-      },
-    };
+    tweening.setTarget(event.clientX - width / 2, event.clientY - height / 2);
   }
 
   function setText(el) {
     let text = el && el.dataset.jerry;
-    text = text && text.trim();
 
     if (text) {
       textEl.innerHTML = text;
@@ -111,4 +82,42 @@ function taggedElementUnderMouse(event) {
 
 function hideBrowserCursor() {
   document.body.style.cursor = "none";
+}
+
+function SmoothMover(moveFn) {
+  const position = { x: 0, y: 0 };
+  let targetPosition = { x: 0, y: 0 };
+  let running = true;
+  requestAnimationFrame(update);
+
+  function update() {
+    position.x = position.x * 0.6 + targetPosition.x * 0.4;
+    position.y = position.y * 0.6 + targetPosition.y * 0.4;
+    const dx = Math.abs(position.x === targetPosition.x);
+    const dy = Math.abs(position.y === targetPosition.y);
+    const farFromDone = dx > 0.1 || dy > 0.1;
+    if (farFromDone) {
+      moveFn(position);
+      requestAnimationFrame(update);
+      return;
+    }
+
+    // Snap to the target and stop the animation once its close enough
+    position.x = targetPosition.x;
+    position.y = targetPosition.y;
+    moveFn(position);
+
+    running = false;
+  }
+
+  return {
+    setTarget: (x, y) => {
+      targetPosition.x = x;
+      targetPosition.y = y;
+
+      if (!running) {
+        requestAnimationFrame(update);
+      }
+    },
+  };
 }
