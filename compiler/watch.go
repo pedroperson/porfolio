@@ -151,11 +151,91 @@ func CompileTemplates(layoutPath, templatesDir, pagesDir, publicDir string) {
 		defer outputFile.Close()
 
 		// Execute the combined template with the layout
-		err = pageTmpl.ExecuteTemplate(outputFile, "layout", nil)
+		err = pageTmpl.ExecuteTemplate(outputFile, "layout", pageData())
 		if err != nil {
 			panic(err)
 		}
 
 		println("Compiled:", pageName)
+	}
+}
+
+type Project struct {
+	Name      string
+	URL       string
+	Role      string
+	Business  string
+	Tasks     string
+	Image1    string
+	Image1Alt string
+	Image2    string
+	Image2Alt string
+	Color     string
+}
+
+func pageData() interface{} {
+	return struct {
+		Projects []Project
+		Title    string
+		Content  template.HTML
+	}{
+		Projects: []Project{
+			{
+				Name:      "bitbu",
+				URL:       "https://bitbu.io/",
+				Role:      "Co-founder",
+				Business:  "Online tools for musician collaboration",
+				Tasks:     "everything tech",
+				Image1:    "/bitbu-cover.jpg",
+				Image1Alt: "screenshot of ludlow kingsley's website",
+				Image2:    "/bitbu-cover.jpg",
+				Image2Alt: "screenshot of ludlow kingsley's website",
+				Color:     "[13,13,13]",
+			},
+			{
+				Name:      "Ludlow Kingsley",
+				URL:       "https://ludlowkingsley.com/",
+				Role:      "Frontend Developer",
+				Business:  "Corporate design agency",
+				Tasks:     "built websites for brands designed in-house",
+				Image1:    "/ludlow_home.jpg",
+				Image1Alt: "screenshot of ludlow kingsley's website",
+				Image2:    "/ludlow_project.jpg",
+				Image2Alt: "screenshot of ludlow kingsley's website",
+			},
+			{
+				Name:      "Jerde",
+				URL:       "https://jerde.com/",
+				Role:      "Frontend Developer",
+				Business:  "Architecture design firm",
+				Tasks:     "wrote the frontend for the visually striking Ludlow Kingsley design",
+				Image1:    "/bitbu-cover.jpg",
+				Image1Alt: "screenshot of ludlow kingsley's website",
+				Image2:    "/bitbu-cover.jpg",
+				Image2Alt: "screenshot of ludlow kingsley's website",
+			},
+			{
+				Name:      "Heloisa Prieto",
+				URL:       "https://heloisaprieto.com/?lang=english",
+				Role:      "Fullstack developer",
+				Business:  "Prolific Brazilian writer",
+				Tasks:     "wrote front and backends for eugênia hanitzsch's design",
+				Image1:    "/bitbu-cover.jpg",
+				Image1Alt: "screenshot of ludlow kingsley's website",
+				Image2:    "/bitbu-cover.jpg",
+				Image2Alt: "screenshot of ludlow kingsley's website",
+			},
+			{
+				Name:      "JM Agency",
+				URL:       "https://jm.agency/",
+				Role:      "Fullstack developer",
+				Business:  "Prolific Brazilian writer",
+				Tasks:     "wrote custom wordpress theme for eugênia hanitzsch's design",
+				Image1:    "/bitbu-cover.jpg",
+				Image1Alt: "screenshot of ludlow kingsley's website",
+				Image2:    "/bitbu-cover.jpg",
+				Image2Alt: "screenshot of ludlow kingsley's website",
+			},
+		},
 	}
 }

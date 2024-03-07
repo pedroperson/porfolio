@@ -7,6 +7,13 @@
   <p class="opacity-85">Developer</p>
 </section>
 
+{{ range .Projects }}
+<section class="my-page-width">{{ template "offset-blocks.html" . }}</section>
+{{ end }}
+
+<br />
+{{template "canvas-stripes" }}
+<!-- 
 <section
   class="my-page-width js-bg-color pt-16 pb-8 min-h-screen"
   data-color="[1,18,18]"
@@ -269,4 +276,4 @@
 >
   <h2 class="font-serif font-bold text-4xl">Section title 3</h2>
   <p class="text-gray-300">Section content</p>
-</section>
+</section> -->

@@ -1,5 +1,8 @@
 # template-go-vercel
 
+Lets looks at a design like this
+https://www.davidanthonychenault.com/portfolio?category=Public
+
 ## Compile html
 
 The /public folder is being used to serve all the static files.

@@ -132,7 +132,7 @@ window.addEventListener("load", () => {
         console.log("intersection", entry);
         let elem = entry.target;
         const data = elem.getAttribute("data-color");
-        const color = JSON.parse(data);
+        const color = data ? JSON.parse(data) : [255, 255, 255];
 
         startFrameChange(color, 5);
 
