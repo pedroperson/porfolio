@@ -52,7 +52,7 @@ function lighten([r, g, b], ratio) {
   return `rgb(${r},${g},${b})`;
 }
 
-function rectFromLeft(y, h, color = "", delay = 0, duration = 800) {
+function rectFromLeft(y, h, color = "", delay = 0, duration = 500) {
   const w = window.innerWidth;
   return new Rect(
     -w,
@@ -66,7 +66,7 @@ function rectFromLeft(y, h, color = "", delay = 0, duration = 800) {
     color
   );
 }
-function rectFromRight(y, h, color = "", delay = 0, duration = 800) {
+function rectFromRight(y, h, color = "", delay = 0, duration = 500) {
   const w = window.innerWidth;
   return new Rect(
     w,
@@ -87,7 +87,7 @@ function startFrameChange(color, N = 4) {
   const h = Math.ceil(window.innerHeight / N);
   for (let i = 0; i < N; i++) {
     RECTS.push(
-      rectFromRight(i * h, h, lighten(color, 0.2 * (Math.random() - 0.5)))
+      rectFromRight(i * h, h, lighten(color, 0.05 * (Math.random() - 0.5)))
     );
   }
 }

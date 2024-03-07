@@ -1,11 +1,9 @@
 <div
-  class="flex gap-8 sm:gap-10 lg:gap-20 xl:gap-24 flex-col md:flex-row flex-nowrap js-bg-color pt-32"
+  class="flex gap-8 sm:gap-10 lg:gap-20 xl:gap-24 flex-col md:flex-row flex-nowrap js-bg-color pt-32 lowercase"
   data-color="{{ .Color }}"
 >
   <div class="flex-1 min-w-0">
-    <h3
-      class="lowercase mb-8 font-bold text-6xl sm:text-7xl lg:text-8xl xl:text-9xl"
-    >
+    <h3 class="mb-8 font-bold text-6xl sm:text-7xl lg:text-8xl xl:text-9xl">
       {{ .Name }}
     </h3>
     <a
@@ -17,18 +15,18 @@
     <img
       class="w-100 mt-24 border border-black"
       src="{{ .Image1 }}"
-      alt="screenshot of ludlow kingsley's website"
+      alt="{{ .Image1Alt }}"
       loading="lazy"
       decoding="async"
       fetchpriority="low"
     />
   </div>
 
-  <div class="flex-1 min-w-0">
+  <div class="flex-1 min-w-0 flex flex-col-reverse md:flex-col gap-24">
     <img
-      class="w-full mt-0 mb-24 border border-black"
+      class="w-full mt-0 border border-black"
       src="{{ .Image2 }}"
-      alt="screenshot of ludlow kingsley's website"
+      alt="{{ .Image2Alt }}"
       loading="lazy"
       decoding="async"
       fetchpriority="low"
