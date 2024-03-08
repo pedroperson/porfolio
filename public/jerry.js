@@ -1,6 +1,22 @@
-window.addEventListener("load", () => {
-  new Jerry();
-});
+// window.addEventListener("load", () => {
+new Jerry();
+// });
+
+function debounce(mainFunction, delay) {
+  // Declare a variable called 'timer' to store the timer ID
+  let timer;
+
+  // Return an anonymous function that takes in any number of arguments
+  return function (...args) {
+    // Clear the previous timer to prevent the execution of 'mainFunction'
+    clearTimeout(timer);
+
+    // Set a new timer that will execute 'mainFunction' after the specified delay
+    timer = setTimeout(() => {
+      mainFunction(...args);
+    }, delay);
+  };
+}
 
 function Jerry() {
   let width = 30;
@@ -18,9 +34,15 @@ function Jerry() {
   // Keep track of the current element being focused
   let currentElement = null;
 
+  const debouncedCheckUnderMouse = checkUnderTheMouse; //debounce(checkUnderTheMouse, 50);
+
   document.addEventListener("mousemove", (event) => {
     moveToPointer(event);
 
+    debouncedCheckUnderMouse(event);
+  });
+
+  function checkUnderTheMouse(event) {
     // Find out what the element directly under the mouse is
     let underMouse = document.elementFromPoint(event.clientX, event.clientY);
     underMouse = underMouse && underMouse.closest("[data-jerry]");
@@ -31,7 +53,7 @@ function Jerry() {
     setText(underMouse);
     setPointerStyle(underMouse);
     currentElement = underMouse;
-  });
+  }
 
   function assembleElements() {
     parent.classList.add("jerry");
@@ -116,6 +138,7 @@ function SmoothMover(moveFn) {
       targetPosition.y = y;
 
       if (!running) {
+        running = true;
         requestAnimationFrame(update);
       }
     },

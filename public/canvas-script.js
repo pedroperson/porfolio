@@ -113,7 +113,7 @@ let bodyTextColor = white;
 document.querySelector("body").style.transition = "color 0.5s ease 0.7s";
 
 // Setup the trigger zones
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   let observer = new IntersectionObserver(handleObserved, {
     rootMargin: "-50% 0% -50% 0%",
   });
