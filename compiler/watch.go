@@ -1,50 +1,61 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"html/template"
 	"log"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
+	"sync"
 
+	"github.com/fatih/color"
 	"github.com/fsnotify/fsnotify"
 )
 
-func main() {
-	watcher, err := fsnotify.NewWatcher()
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer watcher.Close()
+// Watcher encapsulates the file system watcher and the action to be performed on file changes.
+type Watcher struct {
+	watcher *fsnotify.Watcher
+	action  func()
+	path    string
+}
 
+// NewWatcher creates and initializes a new Watcher.
+func NewWatcher(action func(), path string) (*Watcher, error) {
+	fsWatcher, err := fsnotify.NewWatcher()
+	if err != nil {
+		return nil, err
+	}
+
+	return &Watcher{
+		watcher: fsWatcher,
+		action:  action,
+		path:    path,
+	}, nil
+}
+
+// Start begins watching the file system and executes the provided action on changes.
+func (w *Watcher) Start() error {
 	done := make(chan bool)
+
+	// Initial action call
+	w.action()
+
 	go func() {
 		for {
 			select {
-			case event, ok := <-watcher.Events:
+			case event, ok := <-w.watcher.Events:
 				if !ok {
 					return
 				}
-				fmt.Println("event:", event)
+				log.Println("event:", event)
 				if event.Op&fsnotify.Write == fsnotify.Write {
-					fmt.Println("modified file:", event.Name)
-					// Replace "other_script.go" with the path to your Go script
-					// // cmd := exec.Command("go", "run", "other_script.go")
-					// // output, err := cmd.CombinedOutput()
-					// if err != nil {
-					// 	fmt.Println("Error running script:", err)
-					// }
-					// fmt.Println("Script output:", string(output))
-
-					const layoutPath = "templates/layout.html"
-					const templatesDir = "templates"
-					const pagesDir = "templates/pages"
-					const publicDir = "public"
-
-					CompileTemplates(layoutPath, templatesDir, pagesDir, publicDir)
+					log.Println("modified file:", event.Name)
+					w.action()
 				}
-			case err, ok := <-watcher.Errors:
+			case err, ok := <-w.watcher.Errors:
 				if !ok {
 					return
 				}
@@ -53,13 +64,92 @@ func main() {
 		}
 	}()
 
-	// Replace "/path/to/target/folder" with your target folder
-	err = recursiveAdd(watcher, "templates")
+	err := recursiveAdd(w.watcher, w.path)
+	if err != nil {
+		return err
+	}
 
+	<-done // Keep running until program is terminated
+	return nil
+}
+
+// Cleanup performs necessary cleanup actions.
+func (w *Watcher) Cleanup() {
+	w.watcher.Close()
+}
+
+func main() {
+	// Paths and action function
+	const layoutPath = "templates/layout.html"
+	const templatesDir = "templates"
+	const pagesDir = "templates/pages"
+	const publicDir = "public"
+
+	colorBlue := color.New(color.FgBlue).SprintFunc()
+	colorRed := color.New(color.FgRed).SprintFunc()
+
+	var serverWG sync.WaitGroup
+	serverWG.Add(1)
+	// Start the dev server
+	go executeScript("yarn dev", "[vercel]", &serverWG, colorRed)
+
+	action := func() {
+		fmt.Println("lets compile")
+		CompileTemplates(layoutPath, templatesDir, pagesDir, publicDir)
+		fmt.Println("compiled")
+
+		var wg sync.WaitGroup
+		wg.Add(1)
+		// go executeScript("go run compiler/watch.go", "[html]", &wg, colorRed)
+		go executeScript("yarn tailwindcss -i templates/main.css -o public/style.css", "[tailwind]", &wg, colorBlue)
+
+		wg.Wait() // Wait for first to complete
+
+		fmt.Println("css done as well")
+
+	}
+
+	watcher, err := NewWatcher(action, "templates")
 	if err != nil {
 		log.Fatal(err)
 	}
-	<-done
+
+	defer watcher.Cleanup()
+
+	err = watcher.Start()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+}
+
+// executeScript runs a given shell script and outputs its content with a colored tag.
+func executeScript(script string, tag string, wg *sync.WaitGroup, colorFunc func(a ...interface{}) string) {
+	defer wg.Done()
+
+	cmd := exec.Command("bash", "-c", script) // Use "bash" for Linux/macOS. Use "cmd", "/C", script for Windows.
+	stdout, err := cmd.StdoutPipe()
+	if err != nil {
+		fmt.Println("Error obtaining stdout:", err)
+		return
+	}
+
+	if err := cmd.Start(); err != nil {
+		fmt.Println("Error starting command:", err)
+		return
+	}
+
+	scanner := bufio.NewScanner(stdout)
+	for scanner.Scan() {
+		fmt.Println(colorFunc(tag), scanner.Text()) // Print each output line with the colored tag
+	}
+	fmt.Println("IT HAS ENDED")
+
+	if err := cmd.Wait(); err != nil {
+		fmt.Println("Error waiting for command:", err)
+		return
+	}
+
 }
 
 // recursiveAdd watches all subdirectories of the given directory path
@@ -190,7 +280,7 @@ func pageData() interface{} {
 				Image1Alt: "screenshot of Bitbu's home page",
 				Image2:    "/bitbu_short.jpg",
 				Image2Alt: "screenshot of Bitbu's playlist sharing page",
-				Color:     "[13,13,13]",
+				Color:     "[230,230,240]", //"[13,13,13]",
 			},
 			{
 				Name:      "Ludlow Kingsley",
@@ -202,7 +292,7 @@ func pageData() interface{} {
 				Image1Alt: "screenshot of ludlow kingsley's home page",
 				Image2:    "/ludlow_project.jpg",
 				Image2Alt: "screenshot of ludlow kingsley's website",
-				Color:     "[253,253,247]",
+				Color:     "[13,74,27]", // "[253,253,247]"
 			},
 			{
 				Name:      "Jerde",
@@ -214,7 +304,7 @@ func pageData() interface{} {
 				Image1Alt: "screenshot of Jerde's home page",
 				Image2:    "/jerde_project.jpg",
 				Image2Alt: "screenshot of one of Jerde's projects called the 'Hard Rock Seminole Spirit', showing some conceptual art for the project",
-				Color:     "[13,74,27]",
+				Color:     "[228,233,230]", // "[13,74,27]",
 			},
 			{
 				Name:      "Heloisa Prieto",
@@ -226,20 +316,20 @@ func pageData() interface{} {
 				Image1Alt: "screenshot of home page of Heloisa's website",
 				Image2:    "/heloisa_project.jpg",
 				Image2Alt: "screenshot of books page of Heloisa's website",
-				Color:     "[255,255,255]",
+				Color:     "[50,50,50]",
 			},
-			{
-				Name:      "JM Agency",
-				URL:       "https://jm.agency/",
-				Role:      "Fullstack developer",
-				Business:  "Prolific Brazilian writer",
-				Tasks:     "wrote custom wordpress theme for eugênia hanitzsch's design",
-				Image1:    "/jm_home.jpg",
-				Image1Alt: "screenshot of home page for JM Agency",
-				Image2:    "/jm_project.jpg",
-				Image2Alt: "screenshot of testimonials page for JM Agency",
-				Color:     "[91,11,94]",
-			},
+			// {
+			// 	Name:      "JM Agency",
+			// 	URL:       "https://jm.agency/",
+			// 	Role:      "Fullstack developer",
+			// 	Business:  "Prolific Brazilian writer",
+			// 	Tasks:     "wrote custom wordpress theme for eugênia hanitzsch's design",
+			// 	Image1:    "/jm_home.jpg",
+			// 	Image1Alt: "screenshot of home page for JM Agency",
+			// 	Image2:    "/jm_project.jpg",
+			// 	Image2Alt: "screenshot of testimonials page for JM Agency",
+			// 	Color:     "[91,11,94]",
+			// },
 		},
 	}
 }

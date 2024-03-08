@@ -2,15 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LOL IDK ABOUT THIS ONE */
-* {
-  transition: opacity 0.3s ease;
-}
-
 body {
   background: #f9f6ef;
   color: #111;
   font-family: Helvetica, Arial, sans-serif;
+}
+
+.js-linkout-arrow {
+  transition: transform 0.3s ease-out;
+}
+
+.my-link-hover svg {
+  overflow: visible;
+}
+
+.my-link-hover:hover .js-linkout-arrow {
+  transform: translate(6px, -6px);
 }
 
 .font-serif {
@@ -69,4 +76,20 @@ body {
   top: 100%;
   left: 50%;
   transform: translate(-50%, 0);
+}
+
+@media (min-width: 768px) {
+  .my-flipping-section {
+    margin-top: -24em;
+  }
+
+  .my-flipping-section .my-flipping-section__text {
+    padding-top: 24em;
+    padding-bottom: 24em;
+  }
+
+  .my-flipping-section:nth-child(even) {
+    flex-direction: row-reverse;
+    /* align-items: flex-end; */
+  }
 }
