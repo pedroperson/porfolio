@@ -8,15 +8,15 @@
 </section>
 
 <section
-  class="my-page-width h-screen flex flex-col items-center justify-center"
-  style="max-height: 1000px"
+  class="my-page-width h-screen flex flex-col items-start justify-center gap-2 font-bold"
+  style="max-height: 1000px; max-width: 44rem"
 >
-  <p class="text-3xl text-center" style="max-width: 20em">
+  <p class="text-3xl text-center mx-auto mb-4">
     I am a computer programmer with 8 years professional experience in the Web.
   </p>
 
-  <div class="flex items-center gap-2">
-    <p class="opacity-85 text-sm" style="margin-right: 1.8em">Backends in :</p>
+  <div class="flex items-center gap-2 mr-auto">
+    <p class="opacity-85 text-sm">Backends in :</p>
 
     <div class="w-8 has-tooltip">
       {{ template "php.html"}}
@@ -40,7 +40,7 @@
   </div>
 
   <div class="flex items-center gap-2">
-    <p class="opacity-85 text-sm" style="margin-right: 1.8em">Frontends in :</p>
+    <p class="opacity-85 text-sm">Frontends in :</p>
 
     <div class="w-8 has-tooltip">
       {{ template "svelte.html"}}
@@ -54,7 +54,7 @@
   </div>
 
   <div class="flex items-center gap-2">
-    <p class="opacity-85 text-sm" style="margin-right: 1.8em">Running on:</p>
+    <p class="opacity-85 text-sm">Running on:</p>
 
     <div class="w-8 has-tooltip">
       {{ template "aws-ec2.html"}}
@@ -83,9 +83,7 @@
   </div>
 
   <div class="flex items-center gap-2">
-    <p class="opacity-85 text-sm" style="margin-right: 1.8em">
-      When having fun:
-    </p>
+    <p class="opacity-85 text-sm">When having fun:</p>
 
     <div class="w-8 has-tooltip">
       {{ template "golang.html"}}

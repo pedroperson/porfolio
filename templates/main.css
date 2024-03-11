@@ -110,7 +110,7 @@ body {
   height: 170px;
   min-width: 170px;
   min-height: 170px;
-  background: rgba(0, 0, 0, 0.3);
+  /* background: rgba(0, 0, 0, 0.3); */
   object-fit: cover;
   border-radius: 20px;
   color: transparent;
