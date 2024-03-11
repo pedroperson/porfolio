@@ -612,10 +612,6 @@ video {
   flex-direction: column;
 }
 
-.flex-col-reverse {
-  flex-direction: column-reverse;
-}
-
 .flex-nowrap {
   flex-wrap: nowrap;
 }
@@ -628,6 +624,10 @@ video {
   justify-content: flex-end;
 }
 
+.gap-16 {
+  gap: 4rem;
+}
+
 .gap-24 {
   gap: 6rem;
 }
@@ -638,10 +638,6 @@ video {
 
 .gap-4 {
   gap: 1rem;
-}
-
-.gap-8 {
-  gap: 2rem;
 }
 
 .border-t {
@@ -711,18 +707,11 @@ video {
   opacity: 0.85;
 }
 
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
 body {
   background: #f9f6ef;
   color: #111;
   font-family: Helvetica, Arial, sans-serif;
+  transition: background 0.5s ease-out, color 0.5s ease-out;
 }
 
 .js-linkout-arrow {

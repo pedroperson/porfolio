@@ -35,6 +35,14 @@ yarn tailwindcss -i templates/main.css -o public/style.css --watch
 yarn dev
 ```
 
+## Current startup:
+
+Just run and everything will be sorted fam
+
+```
+go run compiler/watch.go
+```
+
 ## So watchu gotta do rn :
 
 Open a terminal at root and run to start the tailwind listener

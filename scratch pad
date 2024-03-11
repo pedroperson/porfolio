@@ -1,0 +1,265 @@
+<!-- TODO: DElete everything under here -->
+<!-- 
+<section
+  class="my-page-width js-bg-color pt-16 pb-8 min-h-screen"
+  data-color="[1,18,18]"
+>
+  <h2 class="font-serif font-bold text-4xl">Bitbu</h2>
+  <p class="opacity-85 text-sm">Co-Founder. (2020 - 2024)</p>
+
+  <div class="flex items-center gap-2">
+    <p class="opacity-85 text-sm" style="margin-right: 1.8em">Built with:</p>
+
+    <div class="w-8" data-jerry="Golang">{{ template "golang.html"}}</div>
+
+    <div class="w-6" data-jerry="Svelte">{{ template "svelte.html"}}</div>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <p class="opacity-85 text-sm mr-2">Deployed on:</p>
+
+    <div class="w-6" data-jerry="AWS S3">{{ template "aws-s3.html" }}</div>
+
+    <div class="w-6" data-jerry="AWS EC2">{{ template "aws-ec2.html" }}</div>
+
+    <div class="w-6" data-jerry="Postgres">{{ template "postgres.html" }}</div>
+
+    <div class="w-6" data-jerry="AWS Lambda">
+      {{ template "aws-lambda.html"}}
+    </div>
+  </div>
+
+  <a
+    class="font-bold px-4 py-2 mt-2 rounded inline-block transition-colors hover:bg-slate-600"
+    href="https://bitbu.io"
+    style="border: 1px solid currentColor"
+    target="_blank"
+    >Visit site</a
+  >
+
+  <p class="mt-4">
+    Bitbu is a platform for musician colaborate online from idea to release. I
+    started working on it with my brother in late 2020, primary with the goal of
+    helping his own business as a music producer. At some point the tools we
+    built seemed useful enough for the general public, so we started the
+    company. As of January 2024, we have stopped actively working on it full
+    time.
+  </p>
+
+  <section class="mt-12">
+    <h3 class="font-serif font-bold text-3xl">Frontend</h3>
+
+    <div class="flex items-center gap-4 mt-2">
+      <div class="w-1/2" data-jerry="poop">
+        <img
+          src="/bitbu-cover.jpg"
+          alt="Screenshot of home page of bitbu website"
+          class="w-full"
+        />
+      </div>
+
+      <div class="w-1/2">
+        <p>
+          Developed using Svelte, a then-emerging JavaScript framework known for
+          its performance and development speed. My prior experience with React
+          and Vue facilitated a smooth transition to Svelte, allowing for rapid
+          UI development without the complexities of Shadow-DOM, contributing
+          significantly to project efficiency. Despite Svelte's smaller
+          ecosystem and early-stage challenges, this choice enabled rapid
+          prototyping and development, although it posed potential scalability
+          and hiring challenges.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-12">
+    <h3 class="font-serif font-bold text-3xl">Backend</h3>
+
+    <div class="flex items-center gap-4 mt-2">
+      <div class="w-1/2">
+        <img
+          src="/bitbu-cover.jpg"
+          alt="Screenshot of home page of bitbu website"
+          class="w-full"
+        />
+      </div>
+
+      <div class="w-1/2">
+        <p>
+          Leveraged Go for its simplicity, type safety, and comprehensive web
+          project support. We adopted a modular monolithic architecture to
+          balance flexibility with simplicity, allowing for efficient scaling
+          and service integration. The backend infrastructure included AWS EC2,
+          AWS Lambda, AWS S3, and Postgres, supporting a robust and scalable
+          platform.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-12">
+    <h3 class="font-serif font-bold text-3xl">Business</h3>
+
+    <div class="flex items-center gap-4 mt-2">
+      <div class="w-1/2">
+        <img
+          src="/bitbu-cover.jpg"
+          alt="Screenshot of home page of bitbu website"
+          class="w-full"
+        />
+      </div>
+
+      <div class="w-1/2">
+        <p>
+          Our startup journey highlighted the challenges of maintaining speed
+          and efficiency in a minimal team setup. Despite significant cost
+          savings compared to competitors, the reduced development speed
+          hindered our ability to compete effectively. The venture concluded
+          with minimal costs and revenues, underscoring the sustainability
+          challenges of a lean startup approach.
+        </p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section
+  class="my-page-width js-bg-color pt-16 pb-8 min-h-screen mt-16"
+  data-color="[25,25,24]"
+>
+  <h2 class="font-serif font-bold text-4xl">Ludlow Kingsley</h2>
+  <p class="opacity-85 text-sm">Frontend developer. (2020 - 2021)</p>
+  <p class="mt-4">
+    Ludlow Kingsley is a Los-Angeles-based design studio. I was first interested
+    to work with them after seeing their wonderful designs, and worked on a
+    number of sites with the for a year. I asked to leave after buttoning up my
+    final website, with the goal of spending my full-time working on Bitbu (see
+    section above).
+  </p>
+
+  <section class="mt-12">
+    <h3 class="font-serif font-bold text-3xl">Jerde</h3>
+
+    <div class="flex items-center gap-2">
+      <p class="opacity-85 text-sm" style="margin-right: 1.8em">Built with:</p>
+
+      <div class="w-8 has-tooltip">
+        {{ template "php.html"}}
+        <span class="tooltip top">PHP</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <p class="opacity-85 text-sm mr-2">Deployed on:</p>
+
+      <div class="w-8 has-tooltip">
+        {{ template "icon-cloudways"}}
+        <span class="tooltip top">Cloudways</span>
+      </div>
+
+      <div class="w-8 has-tooltip">
+        {{ template "github.html"}}
+        <span class="tooltip top">Github</span>
+      </div>
+    </div>
+
+    <a
+      class="font-bold px-4 py-2 mt-2 rounded inline-block transition-colors hover:bg-slate-600"
+      href="https://zinccafe.com"
+      style="border: 1px solid currentColor"
+      target="_blank"
+      >Visit site</a
+    >
+
+    <div class="flex items-center gap-4 mt-2">
+      <div class="w-1/2">
+        <img
+          src="/bitbu-cover.jpg"
+          alt="Screenshot of home page of bitbu website"
+          class="w-full"
+        />
+      </div>
+
+      <div class="w-1/2">
+        <p>
+          As part of the Ludlow Kingsley team, I contributed to the Jerde
+          website, a platform designed to showcase the client's extensive art
+          collection. The project was a blend of creativity and technical
+          challenge, involving unique layouts and image optimization strategies
+          to enhance performance and user engagement.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-12 js-bg-color" data-color="[16, 31, 54]">
+    <h3 class="font-serif font-bold text-3xl">Zinc Cafe</h3>
+
+    <div class="flex items-center gap-2">
+      <p class="opacity-85 text-sm" style="margin-right: 1.8em">Built with:</p>
+
+      <div class="w-8 has-tooltip">
+        {{ template "php.html"}}
+        <span class="tooltip top">PHP</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <p class="opacity-85 text-sm mr-2">Deployed on:</p>
+
+      <div class="w-8 has-tooltip">
+        {{ template "icon-cloudways"}}
+        <span class="tooltip top">Cloudways</span>
+      </div>
+
+      <div class="w-8 has-tooltip">
+        {{ template "github.html"}}
+        <span class="tooltip top">Github</span>
+      </div>
+    </div>
+
+    <a
+      class="font-bold px-4 py-2 mt-2 rounded inline-block transition-colors hover:bg-slate-600"
+      href="https://zinccafe.com"
+      style="border: 1px solid currentColor"
+      target="_blank"
+      >Visit site</a
+    >
+
+    <div class="flex flex-col sm:flex-row items-center mt-4">
+      <div class="w-full sm:w-1/2 pb-4 sm:pr-8 sm:pb-0">
+        <img
+          src="/zinc-cover.jpg"
+          alt="Screenshot of Zinc Cafe website"
+          class="w-full rounded-lg shadow-black shadow-lg"
+        />
+      </div>
+
+      <div class="sm:w-1/2">
+        <p class="max-w-96 sm:max-w-full text-lg">
+          Zinc Cafe is a cafe, market, and bar focused on both customer and
+          employee experiences.
+          <br /><br />
+          The client a simple, fast website that was immediately useful to their
+          customers. The Ludlow Kingsley (LK) designers had already started this
+          project by the time I joined LK, so I started from the finished
+          design. The final product was implemented using LK's own CMS, along
+          with some PHP to connect to it.
+          <br /><br />
+          Although very simple in term of actually programming, this project
+          taught me the value of design and simplicity when it comes to sharing
+          information with customers and potential clients.
+        </p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section
+  class="my-page-width js-bg-color pt-16 pb-8 min-h-screen"
+  data-color="[10, 50, 10]"
+>
+  <h2 class="font-serif font-bold text-4xl">Section title 3</h2>
+  <p class="text-gray-300">Section content</p>
+</section> -->

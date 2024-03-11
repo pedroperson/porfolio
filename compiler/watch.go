@@ -50,9 +50,9 @@ func (w *Watcher) Start() error {
 				if !ok {
 					return
 				}
-				log.Println("event:", event)
+
+				// Perform action on file save
 				if event.Op&fsnotify.Write == fsnotify.Write {
-					log.Println("modified file:", event.Name)
 					w.action()
 				}
 			case err, ok := <-w.watcher.Errors:

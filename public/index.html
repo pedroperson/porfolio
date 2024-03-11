@@ -21,24 +21,14 @@
   <h1 class="font-serif font-bold text-5xl mb-2">Pedro Pessoa</h1>
   <p class="opacity-85">Developer</p>
 </section>
+
 <section class="my-page-width">
    <div
-  class="flex gap-8 sm:gap-10 lg:gap-20 xl:gap-24 flex-col md:flex-row flex-nowrap js-bg-color pt-32 lowercase my-flipping-section"
+  class="my-flipping-section flex gap-16 sm:gap-10 lg:gap-20 xl:gap-24 flex-col md:flex-row flex-nowrap js-bg-color pt-32 lowercase"
   data-color="[230,230,240]"
 >
-  <div class="flex-1 min-w-0">
-    <img
-      class="w-100"
-      src="/bitbu_home.jpg"
-      alt="screenshot of Bitbu&#39;s home page"
-      loading="lazy"
-      decoding="async"
-      fetchpriority="low"
-    />
-  </div>
-
   <div
-    class="flex-1 min-w-0 flex flex-col-reverse md:flex-col gap-24 my-flipping-section__text"
+    class="flex-1 min-w-0 flex flex-col md:flex-col gap-24 my-flipping-section__text"
   >
     <a class="my-link-hover" href="https://bitbu.io/">
       <h3
@@ -71,24 +61,24 @@
       <div class="w-full border-t" style="border-color: currentColor"></div>
     </div>
   </div>
-</div>
-  <div
-  class="flex gap-8 sm:gap-10 lg:gap-20 xl:gap-24 flex-col md:flex-row flex-nowrap js-bg-color pt-32 lowercase my-flipping-section"
-  data-color="[13,74,27]"
->
+
   <div class="flex-1 min-w-0">
     <img
       class="w-100"
-      src="/ludlow_home.jpg"
-      alt="screenshot of ludlow kingsley&#39;s home page"
+      src="/bitbu_home.jpg"
+      alt="screenshot of Bitbu&#39;s home page"
       loading="lazy"
       decoding="async"
       fetchpriority="low"
     />
   </div>
-
+</div>
   <div
-    class="flex-1 min-w-0 flex flex-col-reverse md:flex-col gap-24 my-flipping-section__text"
+  class="my-flipping-section flex gap-16 sm:gap-10 lg:gap-20 xl:gap-24 flex-col md:flex-row flex-nowrap js-bg-color pt-32 lowercase"
+  data-color="[13,74,27]"
+>
+  <div
+    class="flex-1 min-w-0 flex flex-col md:flex-col gap-24 my-flipping-section__text"
   >
     <a class="my-link-hover" href="https://ludlowkingsley.com/">
       <h3
@@ -121,24 +111,24 @@
       <div class="w-full border-t" style="border-color: currentColor"></div>
     </div>
   </div>
-</div>
-  <div
-  class="flex gap-8 sm:gap-10 lg:gap-20 xl:gap-24 flex-col md:flex-row flex-nowrap js-bg-color pt-32 lowercase my-flipping-section"
-  data-color="[228,233,230]"
->
+
   <div class="flex-1 min-w-0">
     <img
       class="w-100"
-      src="/jerde_home.jpg"
-      alt="screenshot of Jerde&#39;s home page"
+      src="/ludlow_home.jpg"
+      alt="screenshot of ludlow kingsley&#39;s home page"
       loading="lazy"
       decoding="async"
       fetchpriority="low"
     />
   </div>
-
+</div>
   <div
-    class="flex-1 min-w-0 flex flex-col-reverse md:flex-col gap-24 my-flipping-section__text"
+  class="my-flipping-section flex gap-16 sm:gap-10 lg:gap-20 xl:gap-24 flex-col md:flex-row flex-nowrap js-bg-color pt-32 lowercase"
+  data-color="[228,233,230]"
+>
+  <div
+    class="flex-1 min-w-0 flex flex-col md:flex-col gap-24 my-flipping-section__text"
   >
     <a class="my-link-hover" href="https://jerde.com/">
       <h3
@@ -171,24 +161,24 @@
       <div class="w-full border-t" style="border-color: currentColor"></div>
     </div>
   </div>
-</div>
-  <div
-  class="flex gap-8 sm:gap-10 lg:gap-20 xl:gap-24 flex-col md:flex-row flex-nowrap js-bg-color pt-32 lowercase my-flipping-section"
-  data-color="[50,50,50]"
->
+
   <div class="flex-1 min-w-0">
     <img
       class="w-100"
-      src="/heloisa_home.jpg"
-      alt="screenshot of home page of Heloisa&#39;s website"
+      src="/jerde_home.jpg"
+      alt="screenshot of Jerde&#39;s home page"
       loading="lazy"
       decoding="async"
       fetchpriority="low"
     />
   </div>
-
+</div>
   <div
-    class="flex-1 min-w-0 flex flex-col-reverse md:flex-col gap-24 my-flipping-section__text"
+  class="my-flipping-section flex gap-16 sm:gap-10 lg:gap-20 xl:gap-24 flex-col md:flex-row flex-nowrap js-bg-color pt-32 lowercase"
+  data-color="[50,50,50]"
+>
+  <div
+    class="flex-1 min-w-0 flex flex-col md:flex-col gap-24 my-flipping-section__text"
   >
     <a class="my-link-hover" href="https://heloisaprieto.com/?lang=english">
       <h3
@@ -221,6 +211,17 @@
       <div class="w-full border-t" style="border-color: currentColor"></div>
     </div>
   </div>
+
+  <div class="flex-1 min-w-0">
+    <img
+      class="w-100"
+      src="/heloisa_home.jpg"
+      alt="screenshot of home page of Heloisa&#39;s website"
+      loading="lazy"
+      decoding="async"
+      fetchpriority="low"
+    />
+  </div>
 </div>
  
 </section>
@@ -234,11 +235,20 @@
   class="fixed top-0 left-0 w-screen h-screen"
   style="z-index: -1"
 ></canvas>
+<div
+  id="center-marker"
+  style="
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    z-index: -1;
+    background: transparent;
+  "
+></div>
 
 <script src="/canvas-script.js"></script>
-
-
-
 
 
 
