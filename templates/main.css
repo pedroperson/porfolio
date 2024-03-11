@@ -89,7 +89,7 @@ body {
     padding-bottom: 24em;
   }
 
-  .my-flipping-section:first-child {
+  .my-flipping-section:first-of-type {
     margin-top: 0;
   }
 
