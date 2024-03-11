@@ -3,12 +3,10 @@
   data-color="{{ .Color }}"
 >
   <div
-    class="flex-1 min-w-0 flex flex-col md:flex-col gap-24 my-flipping-section__text"
+    class="flex-1 min-w-0 flex flex-col md:flex-col gap-8 md:gap-24 my-flipping-section__text"
   >
     <a class="my-link-hover" href="{{ .URL }}">
-      <h3
-        class="inline mb-8 font-bold text-6xl sm:text-7xl lg:text-8xl xl:text-9xl"
-      >
+      <h3 class="inline font-bold text-6xl sm:text-7xl lg:text-8xl xl:text-9xl">
         {{ .Name }}
       </h3>
       <span class="inline-block w-12">{{ template "link-out.html"}}</span>

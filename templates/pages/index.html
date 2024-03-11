@@ -1,109 +1,60 @@
 <!-- pt-16 for the fixed-position header -->
 <section
-  class="my-page-width js-bg-color pt-16 min-h-screen flex flex-col justify-end items-start pb-8"
+  class="my-page-width pt-16 flex flex-col items-start justify-center gap-4 font-bold py-32"
+  style="max-width: 44rem"
   data-color="[10, 10, 10]"
 >
   <h1 class="font-serif font-bold text-5xl mb-2">Pedro Pessoa</h1>
   <p class="opacity-85">Developer</p>
-</section>
-
-<section
-  class="my-page-width h-screen flex flex-col items-start justify-center gap-2 font-bold"
-  style="max-height: 1000px; max-width: 44rem"
->
   <p class="text-3xl text-center mx-auto mb-4">
-    I am a computer programmer with 8 years professional experience in the Web.
+    Building online experiences to delight your customers
   </p>
 
-  <div class="flex items-center gap-2 mr-auto">
+  <div class="flex flex-col gap-2">
     <p class="opacity-85 text-sm">Backends in :</p>
 
-    <div class="w-8 has-tooltip">
-      {{ template "php.html"}}
-      <span class="tooltip top">PHP</span>
-    </div>
-
-    <div class="w-8 has-tooltip">
-      {{ template "golang.html"}}
-      <span class="tooltip top">Golang</span>
-    </div>
-
-    <div class="w-8 has-tooltip">
-      {{ template "golang.html"}}
-      <span class="tooltip top">Python</span>
-    </div>
-
-    <div class="w-8 has-tooltip">
-      {{ template "golang.html"}}
-      <span class="tooltip top">JavaScript</span>
-    </div>
+    <ul class="my-pill-list flex items-center gap-2">
+      <li>Golang</li>
+      <li>PHP</li>
+      <li>Python</li>
+      <li>JavaScript</li>
+    </ul>
   </div>
 
-  <div class="flex items-center gap-2">
+  <div class="flex flex-col gap-2">
     <p class="opacity-85 text-sm">Frontends in :</p>
 
-    <div class="w-8 has-tooltip">
-      {{ template "svelte.html"}}
-      <span class="tooltip top">Svelte</span>
-    </div>
-
-    <div class="w-8 has-tooltip">
-      {{ template "golang.html"}}
-      <span class="tooltip top">React</span>
-    </div>
+    <ul class="my-pill-list flex items-center gap-2">
+      <li>Svelte</li>
+      <li>React</li>
+      <li>React Native</li>
+      <li>Vanilla JS, Sass, Tailwind</li>
+    </ul>
   </div>
 
-  <div class="flex items-center gap-2">
+  <div class="flex flex-col gap-2">
     <p class="opacity-85 text-sm">Running on:</p>
 
-    <div class="w-8 has-tooltip">
-      {{ template "aws-ec2.html"}}
-      <span class="tooltip top">AWS EC2</span>
-    </div>
-
-    <div class="w-8 has-tooltip">
-      {{ template "aws-s3.html"}}
-      <span class="tooltip top">AWS S3</span>
-    </div>
-
-    <div class="w-8 has-tooltip">
-      {{ template "postgres.html"}}
-      <span class="tooltip top">Postgres</span>
-    </div>
-
-    <div class="w-8 has-tooltip">
-      {{ template "aws-lambda.html"}}
-      <span class="tooltip top">AWS Lambda</span>
-    </div>
-
-    <div class="w-8 has-tooltip">
-      {{ template "aws-lambda.html"}}
-      <span class="tooltip top">Vercel</span>
-    </div>
+    <ul class="my-pill-list flex items-center gap-2">
+      <li>AWS EC2</li>
+      <li>AWS S3</li>
+      <li>Postgres</li>
+      <li>AWS Lambda</li>
+      <li>Vercel</li>
+      <li>Wordpress</li>
+      <li>Heroku</li>
+    </ul>
   </div>
 
-  <div class="flex items-center gap-2">
+  <div class="flex flex-col gap-2">
     <p class="opacity-85 text-sm">When having fun:</p>
 
-    <div class="w-8 has-tooltip">
-      {{ template "golang.html"}}
-      <span class="tooltip top">Golang</span>
-    </div>
-
-    <div class="w-8 has-tooltip">
-      {{ template "svelte.html"}}
-      <span class="tooltip top">Python</span>
-    </div>
-
-    <div class="w-8 has-tooltip">
-      {{ template "golang.html"}}
-      <span class="tooltip top">Java</span>
-    </div>
-
-    <div class="w-8 has-tooltip">
-      {{ template "golang.html"}}
-      <span class="tooltip top">MATLAB</span>
-    </div>
+    <ul class="my-pill-list flex items-center gap-2">
+      <li>Golang</li>
+      <li>Python</li>
+      <li>Java</li>
+      <li>MATLAB</li>
+    </ul>
   </div>
 </section>
 

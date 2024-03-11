@@ -65,6 +65,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
     currentColor = color;
     currentTextColor = textColor;
+
+    if (canvasContainer.classList.contains(textColor)) {
+      return;
+    }
+
+    if (textColor === black) {
+      canvasContainer.classList.add("body-white");
+      canvasContainer.classList.remove("body-black");
+    } else {
+      canvasContainer.classList.add("body-black");
+      canvasContainer.classList.remove("body-white");
+    }
   }
 });
 
