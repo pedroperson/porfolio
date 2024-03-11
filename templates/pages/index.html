@@ -7,11 +7,120 @@
   <p class="opacity-85">Developer</p>
 </section>
 
+<section
+  class="my-page-width h-screen flex flex-col items-center justify-center"
+  style="max-height: 1000px"
+>
+  <p class="text-3xl text-center" style="max-width: 20em">
+    I am a computer programmer with 8 years professional experience in the Web.
+  </p>
+
+  <div class="flex items-center gap-2">
+    <p class="opacity-85 text-sm" style="margin-right: 1.8em">Backends in :</p>
+
+    <div class="w-8 has-tooltip">
+      {{ template "php.html"}}
+      <span class="tooltip top">PHP</span>
+    </div>
+
+    <div class="w-8 has-tooltip">
+      {{ template "golang.html"}}
+      <span class="tooltip top">Golang</span>
+    </div>
+
+    <div class="w-8 has-tooltip">
+      {{ template "golang.html"}}
+      <span class="tooltip top">Python</span>
+    </div>
+
+    <div class="w-8 has-tooltip">
+      {{ template "golang.html"}}
+      <span class="tooltip top">JavaScript</span>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <p class="opacity-85 text-sm" style="margin-right: 1.8em">Frontends in :</p>
+
+    <div class="w-8 has-tooltip">
+      {{ template "svelte.html"}}
+      <span class="tooltip top">Svelte</span>
+    </div>
+
+    <div class="w-8 has-tooltip">
+      {{ template "golang.html"}}
+      <span class="tooltip top">React</span>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <p class="opacity-85 text-sm" style="margin-right: 1.8em">Running on:</p>
+
+    <div class="w-8 has-tooltip">
+      {{ template "aws-ec2.html"}}
+      <span class="tooltip top">AWS EC2</span>
+    </div>
+
+    <div class="w-8 has-tooltip">
+      {{ template "aws-s3.html"}}
+      <span class="tooltip top">AWS S3</span>
+    </div>
+
+    <div class="w-8 has-tooltip">
+      {{ template "postgres.html"}}
+      <span class="tooltip top">Postgres</span>
+    </div>
+
+    <div class="w-8 has-tooltip">
+      {{ template "aws-lambda.html"}}
+      <span class="tooltip top">AWS Lambda</span>
+    </div>
+
+    <div class="w-8 has-tooltip">
+      {{ template "aws-lambda.html"}}
+      <span class="tooltip top">Vercel</span>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <p class="opacity-85 text-sm" style="margin-right: 1.8em">
+      When having fun:
+    </p>
+
+    <div class="w-8 has-tooltip">
+      {{ template "golang.html"}}
+      <span class="tooltip top">Golang</span>
+    </div>
+
+    <div class="w-8 has-tooltip">
+      {{ template "svelte.html"}}
+      <span class="tooltip top">Python</span>
+    </div>
+
+    <div class="w-8 has-tooltip">
+      {{ template "golang.html"}}
+      <span class="tooltip top">Java</span>
+    </div>
+
+    <div class="w-8 has-tooltip">
+      {{ template "golang.html"}}
+      <span class="tooltip top">MATLAB</span>
+    </div>
+  </div>
+</section>
+
 <section class="my-page-width">
   {{ range .Projects }} {{ template "offset-blocks.html" . }} {{ end }}
 </section>
 <br />
 
+<section class="my-page-width mt-44" style="max-width: 70em">
+  {{ template "other-projects.html"}}
+</section>
+
+<section class="my-page-width mt-44 mb-44" style="max-width: 70em">
+  {{ template "education.html"}}
+</section>
 <!-- Sections can indicate what color background this desire, so we listen to those requests -->
 {{template "canvas-stripes" }}
 

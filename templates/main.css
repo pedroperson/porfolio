@@ -89,8 +89,46 @@ body {
     padding-bottom: 24em;
   }
 
+  .my-flipping-section:first-child {
+    margin-top: 0;
+  }
+
   .my-flipping-section:nth-child(even) {
     flex-direction: row-reverse;
     /* align-items: flex-end; */
+  }
+}
+
+.my-other-project {
+  width: 100%;
+  max-width: 200px;
+  text-align: left;
+}
+
+.my-other-project img {
+  width: 170px;
+  height: 170px;
+  min-width: 170px;
+  min-height: 170px;
+  background: rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+  border-radius: 20px;
+  color: transparent;
+}
+
+.my-other-project h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.my-other-project p {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .my-other-project h3 {
+    margin-top: 15px;
   }
 }

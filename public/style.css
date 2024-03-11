@@ -556,12 +556,24 @@ video {
   top: 0px;
 }
 
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 
+.mb-44 {
+  margin-bottom: 11rem;
+}
+
 .mb-8 {
   margin-bottom: 2rem;
+}
+
+.mt-44 {
+  margin-top: 11rem;
 }
 
 .inline-block {
@@ -576,6 +588,10 @@ video {
   display: flex;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -586,6 +602,14 @@ video {
 
 .w-12 {
   width: 3rem;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.w-8 {
+  width: 2rem;
 }
 
 .w-full {
@@ -612,6 +636,10 @@ video {
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .flex-nowrap {
   flex-wrap: nowrap;
 }
@@ -620,12 +648,28 @@ video {
   align-items: flex-start;
 }
 
+.items-center {
+  align-items: center;
+}
+
 .justify-end {
   justify-content: flex-end;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
 .gap-16 {
   gap: 4rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .gap-24 {
@@ -638,6 +682,15 @@ video {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-x-20 {
+  -moz-column-gap: 5rem;
+       column-gap: 5rem;
+}
+
+.gap-y-24 {
+  row-gap: 6rem;
 }
 
 .border-t {
@@ -661,6 +714,10 @@ video {
   padding-top: 8rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .font-serif {
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
@@ -668,6 +725,11 @@ video {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-5xl {
@@ -683,6 +745,11 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .font-bold {
@@ -794,9 +861,48 @@ body {
     padding-bottom: 24em;
   }
 
+  .my-flipping-section:first-child {
+    margin-top: 0;
+  }
+
   .my-flipping-section:nth-child(even) {
     flex-direction: row-reverse;
     /* align-items: flex-end; */
+  }
+}
+
+.my-other-project {
+  width: 100%;
+  max-width: 200px;
+  text-align: left;
+}
+
+.my-other-project img {
+  width: 170px;
+  height: 170px;
+  min-width: 170px;
+  min-height: 170px;
+  background: rgba(0, 0, 0, 0.3);
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+  color: transparent;
+}
+
+.my-other-project h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.my-other-project p {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .my-other-project h3 {
+    margin-top: 15px;
   }
 }
 
