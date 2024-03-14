@@ -556,25 +556,16 @@ video {
   top: 0px;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .mb-16 {
   margin-bottom: 4rem;
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
 .mb-44 {
   margin-bottom: 11rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .mt-12 {
@@ -583,6 +574,10 @@ video {
 
 .mt-44 {
   margin-top: 11rem;
+}
+
+.block {
+  display: block;
 }
 
 .inline-block {
@@ -692,8 +687,12 @@ video {
   padding-bottom: 8rem;
 }
 
-.pt-16 {
-  padding-top: 4rem;
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .pt-8 {
@@ -709,11 +708,6 @@ video {
   line-height: 2rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -724,13 +718,12 @@ video {
   line-height: 1;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+.text-\[5rem\] {
+  font-size: 5rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
+.text-lg {
+  font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
@@ -833,6 +826,12 @@ body {
   transform: translate(-50%, 0);
 }
 
+/* pt-8 md:pt-16 lg:pt-32 */
+
+.my-flipping-section:first-of-type {
+  padding-top: 0;
+}
+
 @media (min-width: 768px) {
   .my-flipping-section {
     margin-top: -12em;
@@ -859,12 +858,12 @@ body {
 
 @media (min-width: 1100px) {
   .my-flipping-section {
-    margin-top: -24em;
+    margin-top: -16em;
   }
 
   .my-flipping-section .my-flipping-section__text {
-    padding-top: 24em;
-    padding-bottom: 24em;
+    padding-top: 16em;
+    padding-bottom: 16em;
   }
 
   .my-flipping-section:first-of-type .my-flipping-section__text {
@@ -925,6 +924,12 @@ body {
   background-color: #333;
 }
 
+@media (min-width: 475px) {
+  .xs\:text-\[7rem\] {
+    font-size: 7rem;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:gap-10 {
     gap: 2.5rem;
@@ -933,6 +938,10 @@ body {
   .sm\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
+  }
+
+  .sm\:text-\[8rem\] {
+    font-size: 8rem;
   }
 
   .sm\:text-xl {
@@ -961,6 +970,10 @@ body {
   .md\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .md\:text-\[10rem\] {
+    font-size: 10rem;
   }
 }
 
@@ -991,6 +1004,10 @@ body {
     font-size: 6rem;
     line-height: 1;
   }
+
+  .lg\:text-\[12rem\] {
+    font-size: 12rem;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1001,5 +1018,9 @@ body {
   .xl\:text-9xl {
     font-size: 8rem;
     line-height: 1;
+  }
+
+  .xl\:text-\[15rem\] {
+    font-size: 15rem;
   }
 }

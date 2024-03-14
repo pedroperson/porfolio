@@ -11,6 +11,9 @@ module.exports = {
           200: "#888883",
         },
       },
+      screens: {
+        xs: "475px",
+      },
     },
   },
   plugins: [],
