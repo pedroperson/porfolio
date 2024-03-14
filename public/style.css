@@ -596,8 +596,8 @@ video {
   height: 100vh;
 }
 
-.w-12 {
-  width: 3rem;
+.w-8 {
+  width: 2rem;
 }
 
 .w-full {
@@ -687,8 +687,12 @@ video {
   padding-bottom: 8rem;
 }
 
-.pb-8 {
-  padding-bottom: 2rem;
+.pb-24 {
+  padding-bottom: 6rem;
+}
+
+.pt-16 {
+  padding-top: 4rem;
 }
 
 .pt-4 {
@@ -703,11 +707,6 @@ video {
   text-align: center;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -718,13 +717,18 @@ video {
   line-height: 1;
 }
 
-.text-\[5rem\] {
-  font-size: 5rem;
+.text-\[4rem\] {
+  font-size: 4rem;
 }
 
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .font-bold {
@@ -739,6 +743,11 @@ video {
   text-transform: lowercase;
 }
 
+.text-slate-600 {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity));
+}
+
 .text-slate-800 {
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity));
@@ -746,6 +755,12 @@ video {
 
 .underline {
   text-decoration-line: underline;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 body {
@@ -766,6 +781,16 @@ body {
 
 .my-link-hover:hover .js-linkout-arrow {
   transform: translate(6px, -6px);
+}
+
+.my-link-hover {
+  transition: 0.24s opacity ease-out;
+}
+
+.my-link-hover:hover {
+  opacity: 0.84;
+  text-decoration: underline;
+  text-decoration-thickness: 0.5em;
 }
 
 .font-serif {
@@ -924,7 +949,17 @@ body {
   background-color: #333;
 }
 
+.hover\:text-sky-800:hover {
+  --tw-text-opacity: 1;
+  color: rgb(7 89 133 / var(--tw-text-opacity));
+}
+
 @media (min-width: 475px) {
+  .xs\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .xs\:text-\[7rem\] {
     font-size: 7rem;
   }
@@ -951,6 +986,10 @@ body {
 }
 
 @media (min-width: 768px) {
+  .md\:mb-14 {
+    margin-bottom: 3.5rem;
+  }
+
   .md\:flex-row {
     flex-direction: row;
   }
@@ -972,12 +1011,25 @@ body {
     line-height: 2.5rem;
   }
 
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
   .md\:text-\[10rem\] {
     font-size: 10rem;
   }
 }
 
 @media (min-width: 1024px) {
+  .lg\:mb-20 {
+    margin-bottom: 5rem;
+  }
+
+  .lg\:w-12 {
+    width: 3rem;
+  }
+
   .lg\:gap-20 {
     gap: 5rem;
   }

@@ -5,11 +5,13 @@
   <div
     class="flex-1 min-w-0 flex flex-col md:flex-col gap-8 md:gap-12 lg:gap-24 my-flipping-section__text"
   >
-    <a class="my-link-hover" href="{{ .URL }}">
+    <a class="my-link-hover" href="{{ .URL }}" target="_blank">
       <h3 class="inline font-bold text-5xl sm:text-6xl lg:text-8xl xl:text-9xl">
         {{ .Name }}
       </h3>
-      <span class="inline-block w-12 pt-4">{{ template "link-out.html"}}</span>
+      <span class="inline-block w-8 lg:w-12 pt-4"
+        >{{ template "link-out.html"}}</span
+      >
     </a>
 
     <div
