@@ -8,7 +8,7 @@
   <p class="text-3xl mx-auto mb-4">
     Building online experiences to delight your customers
   </p>
-
+  <!-- 
   <div class="flex flex-col gap-2">
     <p class="opacity-85 text-sm">Backends in :</p>
 
@@ -54,32 +54,36 @@
       <li>Java</li>
       <li>MATLAB</li>
     </ul>
-  </div>
+  </div> -->
 </section>
 
 <div
-  class="flex flex-col gap-4 bg-slate-50 text-slate-800 text-4xl py-32 text-center text-bold"
+  class="flex flex-col gap-4 bg-slate-50 text-slate-800 text-2xl md:text-4xl lg:text-6xl py-32 text-center text-bold"
 >
   <div class="my-page-width">
     <p>contact me</p>
-    <a class="underline" href="@mail:pedro.bom7@gmail.com"
+    <a
+      class="underline uppercase inline-block font-bold p-4"
+      href="mailto:pedro.bom7@gmail.com"
       >pedro.bom7@gmail.com</a
     >
   </div>
 </div>
 
 <section class="my-page-width mt-12">
-  <h2 class="font-bold text-6xl">Projects</h2>
+  <h2 class="font-bold uppercase text-4xl lg:text-6xl">Projects</h2>
   {{ range .Projects }} {{ template "offset-blocks.html" . }} {{ end }}
 </section>
 <br />
 
 <section class="my-page-width mt-44" style="max-width: 70em">
+  <h2 class="font-bold uppercase text-4xl lg:text-6xl mb-16">for fun</h2>
+
   {{ template "other-projects.html"}}
 </section>
 
 <section class="my-page-width mt-44 mb-44" style="max-width: 70em">
-  <h2 class="font-bold text-6xl mb-16">education</h2>
+  <h2 class="font-bold uppercase text-4xl lg:text-6xl mb-16">education</h2>
 
   {{ template "education.html"}}
 </section>

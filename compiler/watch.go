@@ -256,6 +256,7 @@ type Project struct {
 	Role      string
 	Business  string
 	Tasks     string
+	Designer  string
 	Image1    string
 	Image1Alt string
 	Image2    string
@@ -263,6 +264,33 @@ type Project struct {
 	Color     string
 }
 
+// Backends in :
+
+// Golang
+// PHP
+// Python
+// JavaScript
+// Frontends in :
+
+// Svelte
+// React
+// React Native
+// Vanilla JS, Sass, Tailwind
+// Running on:
+
+// AWS EC2
+// AWS S3
+// Postgres
+// AWS Lambda
+// Vercel
+// Wordpress
+// Heroku
+// When having fun:
+
+// Golang
+// Python
+// Java
+// MATLAB
 func pageData() interface{} {
 	return struct {
 		Projects []Project
@@ -275,7 +303,8 @@ func pageData() interface{} {
 				URL:       "https://bitbu.io/",
 				Role:      "Co-founder",
 				Business:  "Online tools for musician collaboration",
-				Tasks:     "everything tech",
+				Tasks:     "Golang, Svelte, Postgres, AWS EC2, S3, RDS, Lambda",
+				Designer:  "Gustavo Pessoa",
 				Image1:    "/bitbu_home.jpg",
 				Image1Alt: "screenshot of Bitbu's home page",
 				Image2:    "/bitbu_short.jpg",
@@ -287,7 +316,8 @@ func pageData() interface{} {
 				URL:       "https://ludlowkingsley.com/",
 				Role:      "Frontend Developer",
 				Business:  "Corporate design agency",
-				Tasks:     "built websites for brands designed in-house",
+				Tasks:     "PHP, Javascript, Cloudways, Ludlow Kingsley CMS",
+				Designer:  "Ludlow Kingley Staff",
 				Image1:    "/ludlow_home.jpg",
 				Image1Alt: "screenshot of ludlow kingsley's home page",
 				Image2:    "/ludlow_project.jpg",
@@ -299,7 +329,8 @@ func pageData() interface{} {
 				URL:       "https://jerde.com/",
 				Role:      "Frontend Developer",
 				Business:  "Architecture design firm",
-				Tasks:     "wrote the frontend for the visually striking Ludlow Kingsley design",
+				Tasks:     "PHP, Javascript, Cloudways, Ludlow Kingsley CMS",
+				Designer:  "Ludlow Kingley Staff",
 				Image1:    "/jerde_home.jpg",
 				Image1Alt: "screenshot of Jerde's home page",
 				Image2:    "/jerde_project.jpg",
@@ -311,25 +342,27 @@ func pageData() interface{} {
 				URL:       "https://heloisaprieto.com/?lang=english",
 				Role:      "Fullstack developer",
 				Business:  "Prolific Brazilian writer",
-				Tasks:     "wrote front and backends for eugênia hanitzsch's design",
+				Tasks:     "Golang, Go Templates, Heroku",
+				Designer:  "eugênia hanitzsch",
 				Image1:    "/heloisa_home.jpg",
 				Image1Alt: "screenshot of home page of Heloisa's website",
 				Image2:    "/heloisa_project.jpg",
 				Image2Alt: "screenshot of books page of Heloisa's website",
 				Color:     "[50,50,50]",
 			},
-			// {
-			// 	Name:      "JM Agency",
-			// 	URL:       "https://jm.agency/",
-			// 	Role:      "Fullstack developer",
-			// 	Business:  "Prolific Brazilian writer",
-			// 	Tasks:     "wrote custom wordpress theme for eugênia hanitzsch's design",
-			// 	Image1:    "/jm_home.jpg",
-			// 	Image1Alt: "screenshot of home page for JM Agency",
-			// 	Image2:    "/jm_project.jpg",
-			// 	Image2Alt: "screenshot of testimonials page for JM Agency",
-			// 	Color:     "[91,11,94]",
-			// },
+			{
+				Name:      "JM Agency",
+				URL:       "https://jm.agency/",
+				Role:      "Fullstack developer",
+				Business:  "Prolific Brazilian writer",
+				Tasks:     "Wordpress",
+				Designer:  "eugênia hanitzsch",
+				Image1:    "/jm_home.jpg",
+				Image1Alt: "screenshot of home page for JM Agency",
+				Image2:    "/jm_project.jpg",
+				Image2Alt: "screenshot of testimonials page for JM Agency",
+				Color:     "[91,11,94]",
+			},
 		},
 	}
 }
