@@ -682,6 +682,11 @@ video {
   padding: 1rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .py-32 {
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -689,6 +694,10 @@ video {
 
 .pb-24 {
   padding-bottom: 6rem;
+}
+
+.pl-4 {
+  padding-left: 1rem;
 }
 
 .pt-16 {
@@ -867,17 +876,12 @@ body {
     padding-bottom: 12em;
   }
 
-  .my-flipping-section:first-of-type .my-flipping-section__text {
-    /* padding-top: 4em; */
-  }
-
   .my-flipping-section:first-of-type {
     margin-top: 0;
   }
 
   .my-flipping-section:nth-child(even) {
     flex-direction: row-reverse;
-    /* align-items: flex-end; */
   }
 }
 
@@ -966,10 +970,6 @@ body {
 }
 
 @media (min-width: 640px) {
-  .sm\:gap-10 {
-    gap: 2.5rem;
-  }
-
   .sm\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -996,6 +996,10 @@ body {
 
   .md\:flex-col {
     flex-direction: column;
+  }
+
+  .md\:gap-1 {
+    gap: 0.25rem;
   }
 
   .md\:gap-12 {
@@ -1030,10 +1034,6 @@ body {
     width: 3rem;
   }
 
-  .lg\:gap-20 {
-    gap: 5rem;
-  }
-
   .lg\:gap-24 {
     gap: 6rem;
   }
@@ -1063,10 +1063,6 @@ body {
 }
 
 @media (min-width: 1280px) {
-  .xl\:gap-24 {
-    gap: 6rem;
-  }
-
   .xl\:text-9xl {
     font-size: 8rem;
     line-height: 1;

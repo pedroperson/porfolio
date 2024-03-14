@@ -94,6 +94,7 @@ body {
 .my-flipping-section:first-of-type {
   padding-top: 0;
 }
+
 @media (min-width: 768px) {
   .my-flipping-section {
     margin-top: -12em;
@@ -104,16 +105,12 @@ body {
     padding-bottom: 12em;
   }
 
-  .my-flipping-section:first-of-type .my-flipping-section__text {
-    /* padding-top: 4em; */
-  }
   .my-flipping-section:first-of-type {
     margin-top: 0;
   }
 
   .my-flipping-section:nth-child(even) {
     flex-direction: row-reverse;
-    /* align-items: flex-end; */
   }
 }
 
