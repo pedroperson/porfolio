@@ -1,21 +1,21 @@
 <!-- pt-16 for the fixed-position header -->
 <section
-  class="my-page-width flex flex-col items-start justify-center gap-4 font-bold pt-16 pb-24"
-  data-color="[10, 10, 10]"
+  class="my-page-width js-bg-color flex flex-col items-start justify-center gap-4 font-bold pt-8 lg:pt-16 pb-32 lg:pb-24"
+  data-color="[253,253,247]"
 >
   <h1
     class="font-bold uppercase text-[4rem] xs:text-[7rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] xl:text-[15rem]"
-    style="line-height: 0.77em; letter-spacing: -0.07em"
+    style="line-height: 0.77em; letter-spacing: -0.07em; margin-left: -0.078em"
   >
     Pedro Pessoa
   </h1>
   <h4
-    class="font-bold text-slate-600"
+    class="font-bold"
     style="
       font-size: 2rem;
       line-height: 0.77em;
-      letter-spacing: -0.07em;
-      padding-left: 11px;
+      letter-spacing: -0.03em;
+      opacity: 0.75;
     "
   >
     web dev
@@ -33,13 +33,17 @@
 <br />
 
 <section class="my-page-width mt-44" style="max-width: 70em">
-  <h2 class="font-bold uppercase text-4xl lg:text-6xl mb-16">for fun</h2>
+  <h2 class="font-bold uppercase text-4xl lg:text-6xl mb-16 text-center">
+    for fun
+  </h2>
 
   {{ template "other-projects.html"}}
 </section>
 
 <section class="my-page-width mt-44 mb-44" style="max-width: 70em">
-  <h2 class="font-bold uppercase text-4xl lg:text-6xl mb-16">education</h2>
+  <h2 class="font-bold uppercase text-4xl lg:text-6xl mb-16 text-center">
+    education
+  </h2>
 
   {{ template "education.html"}}
 </section>

@@ -1,13 +1,14 @@
 <div
-  class="my-flipping-section flex gap-16 md:gap-1 flex-col md:flex-row flex-nowrap js-bg-color pt-8 md:pt-16 lg:pt-32 lowercase"
+  class="my-flipping-section js-bg-color flex gap-16 md:gap-1 flex-col md:flex-row flex-nowrap pt-8 md:pt-16 lg:pt-32 lowercase"
   data-color="{{ .Color }}"
 >
   <div
-    class="flex-1 min-w-0 flex flex-col md:flex-col gap-8 md:gap-12 lg:gap-24 my-flipping-section__text"
+    class="flex-1 min-w-0 flex flex-col gap-8 md:gap-12 lg:gap-24 my-flipping-section__text"
   >
     <a class="my-link-hover" href="{{ .URL }}" target="_blank">
       <h3
-        class="inline font-bold text-5xl sm:text-6xl lg:text-8xl xl:text-9xl pl-4"
+        class="inline font-bold text-5xl sm:text-6xl lg:text-8xl xl:text-9xl"
+        style="margin-left: -0.043em"
       >
         {{ .Name }}
       </h3>
@@ -19,12 +20,16 @@
     <div
       class="font-bold text-lg sm:text-xl lg:text-2xl flex flex-col gap-3 w-100"
     >
-      <p class="px-4">role: {{.Role}}</p>
+      <p>role: {{.Role}}</p>
       <div class="w-full border-t" style="border-color: currentColor"></div>
-      <p class="px-4">business: {{.Business}}</p>
+      <p>business: {{.Business}}</p>
       <div class="w-full border-t" style="border-color: currentColor"></div>
-      <p class="px-4">tech: {{.Tasks}}</p>
+      <p>tech: {{.Tasks}}</p>
       <div class="w-full border-t" style="border-color: currentColor"></div>
+      <p>tech: {{.Tasks}}</p>
+      <div class="w-full border-t" style="border-color: currentColor"></div>
+
+      <p class="text-md"></p>
     </div>
   </div>
 

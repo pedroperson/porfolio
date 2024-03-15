@@ -38,7 +38,7 @@ body {
 
 .my-page-width {
   width: 100%;
-  max-width: 1600px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 2em;
@@ -95,7 +95,15 @@ body {
   padding-top: 0;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+  .my-flipping-section {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 769px) {
   .my-flipping-section {
     margin-top: -12em;
   }
@@ -112,6 +120,22 @@ body {
   .my-flipping-section:nth-child(even) {
     flex-direction: row-reverse;
   }
+
+  .my-flipping-section:nth-child(even) .my-link-hover {
+    padding-left: 1rem;
+  }
+
+  .my-flipping-section:nth-child(even) p {
+    padding-left: 1rem;
+  }
+
+  .my-flipping-section:nth-child(odd) .my-link-hover {
+    padding-right: 1rem;
+  }
+
+  .my-flipping-section:nth-child(odd) p {
+    padding-right: 1rem;
+  }
 }
 
 @media (min-width: 1100px) {
@@ -122,10 +146,6 @@ body {
   .my-flipping-section .my-flipping-section__text {
     padding-top: 16em;
     padding-bottom: 16em;
-  }
-
-  .my-flipping-section:first-of-type .my-flipping-section__text {
-    /* padding-top: 8em; */
   }
 }
 
