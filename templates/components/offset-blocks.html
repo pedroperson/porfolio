@@ -1,5 +1,5 @@
 <div
-  class="my-flipping-section js-bg-color flex gap-16 md:gap-1 flex-col md:flex-row flex-nowrap pt-8 md:pt-16 lg:pt-32 lowercase"
+  class="my-flipping-section js-bg-color flex gap-16 md:gap-12 lg:gap-24 flex-col md:flex-row flex-nowrap pt-8 md:pt-16 lg:pt-16 lowercase"
   data-color="{{ .Color }}"
 >
   <div
@@ -26,10 +26,19 @@
       <div class="w-full border-t" style="border-color: currentColor"></div>
       <p>tech: {{.Tasks}}</p>
       <div class="w-full border-t" style="border-color: currentColor"></div>
-      <p>tech: {{.Tasks}}</p>
-      <div class="w-full border-t" style="border-color: currentColor"></div>
 
-      <p class="text-md"></p>
+      <p
+        class="font-normal normal-case"
+        style="
+          font-size: 14px;
+          padding-top: 3rem;
+          line-height: 1.4em;
+          font-family: monospace;
+          letter-spacing: -0.04em;
+        "
+      >
+        {{.Description}}
+      </p>
     </div>
   </div>
 

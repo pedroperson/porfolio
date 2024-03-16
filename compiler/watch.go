@@ -108,6 +108,7 @@ func main() {
 		fmt.Println("css done as well")
 
 	}
+	// TODO: Need to watch go files changing as well!
 
 	watcher, err := NewWatcher(action, "templates")
 	if err != nil {
@@ -251,17 +252,18 @@ func CompileTemplates(layoutPath, templatesDir, pagesDir, publicDir string) {
 }
 
 type Project struct {
-	Name      string
-	URL       string
-	Role      string
-	Business  string
-	Tasks     string
-	Designer  string
-	Image1    string
-	Image1Alt string
-	Image2    string
-	Image2Alt string
-	Color     string
+	Name        string
+	URL         string
+	Role        string
+	Business    string
+	Tasks       string
+	Designer    string
+	Image1      string
+	Image1Alt   string
+	Image2      string
+	Image2Alt   string
+	Color       string
+	Description template.HTML
 }
 
 // Backends in :
@@ -310,6 +312,9 @@ func pageData() interface{} {
 				Image2:    "/bitbu_short.jpg",
 				Image2Alt: "screenshot of Bitbu's playlist sharing page",
 				Color:     "[230,230,240]", //"[13,13,13]",
+				Description: `In late 2020, my brother and I co-founded Bitbu, a platform enabling musicians to collaborate from idea to release.  
+				<br><br>Utilizing Svelte for its rapid UI development, Go for backend stability, and AWS for global scale deployment, we crafted a highly efficient yet scalable solution, despite the challenges of a smaller ecosystem and the complexities of startup growth. 
+				<br><br>Our journey through Bitbu, marked by significant learning in technology and business management, culminated in December 2023 when we shifted our focus away from the company, reflecting on the project's sustainability and the hurdles of competing with minimal resources.`,
 			},
 			{
 				Name:      "Ludlow Kingsley",
@@ -323,6 +328,8 @@ func pageData() interface{} {
 				Image2:    "/ludlow_project.jpg",
 				Image2Alt: "screenshot of ludlow kingsley's website",
 				Color:     "[13,74,27]", // "[253,253,247]"
+				Description: `Ludlow Kingsley is a Los Angeles based brand design studio. Initially drawn by their wonderful designs, I was lucky to work on a number of their websites for a year. After delivering a big project, I was often tasked with making its project study page for the agency's website.
+				<br><br>`,
 			},
 			{
 				Name:      "Jerde",

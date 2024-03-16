@@ -727,12 +727,20 @@ video {
   font-weight: 700;
 }
 
+.font-normal {
+  font-weight: 400;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
 
 .lowercase {
   text-transform: lowercase;
+}
+
+.normal-case {
+  text-transform: none;
 }
 
 .text-slate-800 {
@@ -869,32 +877,20 @@ body {
   .my-flipping-section:nth-child(even) {
     flex-direction: row-reverse;
   }
-
-  .my-flipping-section:nth-child(even) .my-link-hover {
-    padding-left: 1rem;
-  }
-
-  .my-flipping-section:nth-child(even) p {
-    padding-left: 1rem;
-  }
-
-  .my-flipping-section:nth-child(odd) .my-link-hover {
-    padding-right: 1rem;
-  }
-
-  .my-flipping-section:nth-child(odd) p {
-    padding-right: 1rem;
-  }
 }
 
 @media (min-width: 1100px) {
   .my-flipping-section {
-    margin-top: -16em;
+    margin-top: -12em;
   }
 
   .my-flipping-section .my-flipping-section__text {
-    padding-top: 16em;
-    padding-bottom: 16em;
+    padding-top: 14em;
+    padding-bottom: 14em;
+  }
+
+  .my-flipping-section:first-of-type .my-flipping-section__text {
+    padding-top: 8em;
   }
 }
 
@@ -992,10 +988,6 @@ body {
     flex-direction: row;
   }
 
-  .md\:gap-1 {
-    gap: 0.25rem;
-  }
-
   .md\:gap-12 {
     gap: 3rem;
   }
@@ -1038,10 +1030,6 @@ body {
 
   .lg\:pt-16 {
     padding-top: 4rem;
-  }
-
-  .lg\:pt-32 {
-    padding-top: 8rem;
   }
 
   .lg\:text-2xl {
